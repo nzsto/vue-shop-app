@@ -16,21 +16,6 @@ vue2 + vuex + vue-router + vue-cli + ES6 + axios + sass + flex
 
 ## 关于部署
 
-
-
-# 项目运行
-
-```
-git clone https://github.com/nzsto/vue-shop-app.git
-
-cd vue-shop-app
-
-npm install
-
-npm run serve
-
-```
-
 ## 目标功能
 
 - [x] 登陆、登出功能
@@ -84,5 +69,17 @@ npm run serve
 ├── favicon.ico                                 // 图标
 ├── index.html                                  // 入口html文件
 .
+
+```
+## 项目运行
+
+```
+git clone https://github.com/nzsto/vue-shop-app.git
+
+cd vue-shop-app
+
+npm install
+
+npm run serve
 
 ```
