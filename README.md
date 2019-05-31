@@ -1,5 +1,4 @@
-# shop
-
+# 项目-商城
 ## Project setup
 ```
 npm install
@@ -19,11 +18,3 @@ npm run build
 ```
 npm run test
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
