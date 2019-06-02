@@ -1,8 +1,8 @@
 export default {
   name: 'mine',
   path: '/mine',
-  component: () => ("@views/mine/Mine"),
-  meta: {
-    TopheaderFlag: false
-  }
+  component: () =>import ("@views/mine/Mine"),
+  // meta: {
+  //   TopheaderFlag: false
+  // }
 }

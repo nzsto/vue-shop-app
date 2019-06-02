@@ -34,7 +34,7 @@ export default {
             no-repeat;
             width: 100%;
             height: 35vh;
-            margin-bottom: 1rem;
+            margin-bottom: .66rem;
             }
         .content>.text{
             font-size: .2rem;
@@ -49,7 +49,7 @@ export default {
             text-align: center;
         }
         .but>a{
-            padding: .4rem 1rem;
+            padding: .2rem .8rem;
             box-shadow: 0 2px 6px 0 rgba(255,135,135,.5);
             background: linear-gradient(to left,#FF5E90 0,#FF927C 100%);
             border-radius: .9rem;

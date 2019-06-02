@@ -6,6 +6,9 @@ import productlist from './productList'
 import productdetails from './productDetails'
 import shopcar from './shopCar'
 import mine from './mine'
+import collect from "./collect";
+import footermark from "./footermark";
+import feedback from "./feedback";
 Vue.use(Router)
 
 export default new Router({
@@ -13,13 +16,16 @@ export default new Router({
     routes: [
         {
             path:"/", //重定向
-            redirect:"/homepage/homepage"
+            redirect:"/homepage"
         },
         homepage,
         sort,
         productlist,
         productdetails,
         shopcar,
-        mine
+        mine,
+        collect,
+        footermark,
+        feedback
     ]
 })

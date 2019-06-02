@@ -1,75 +1,13 @@
 <template>
-    <div class="layout">
-        <div class="header">
-            <div class="cent row-s">
-                <div class="center row-s">
-                        <a href class="img">
-                            <img
-                                src="https://cmsstatic.dataoke.com//wap_new/user/images/user_info_tx.png?v=201905301831">
-                        </a>
-                    <div class="info">
-                        <p>
-                            <a href="#">登录</a>
-                            <i>/</i>
-                            <a href="#">注册</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="content">
-            <ul>
-                <li class="crow-s">
-                    <p>
-                        <i>
-                            <img src="https://cmsstatic.dataoke.com//wap_new/user/images/icon/wode_icon_like.svg">
-                        </i>
-                        我的购物车
-                    </p>
-                </li>
-                <li class="crow-s">
-                    <p>
-                        <i>
-                            <img src="https://cmsstatic.dataoke.com//wap_new/user/images/icon/wode_icon_history.svg">
-                        </i>
-                        浏览记录
-                    </p>
-                </li>
-            </ul>
-            <div class="hr"></div>
-             <ul>
-                 <li class="crow-s">
-                     <p>
-                         <i>
-                             <img src="https://cmsstatic.dataoke.com//wap_new/user/images/icon/wode_icon_feedback.svg">
-                         </i>
-                         意见反馈
-                     </p>
-                 </li>
-                 <li class="crow-s">
-                     <p>
-                         <i>
-                             <img src="https://cmsstatic.dataoke.com//wap_new/user/images/icon/wode_icon_servicer.svg">
-                         </i>
-                         联系客服
-                     </p>
-                 </li>
-                 <li class="crow-s">
-                     <p>
-                         <i>
-                             <img src="https://cmsstatic.dataoke.com//wap_new/user/images/icon/wode_icon_help.svg">
-                         </i>
-                         领劵帮助
-                     </p>
-                 </li>
-             </ul>
-        </div>
-    </div>
+   <mine />
 </template>
 
 <script>
+import mine from "@components/mine/mine";
 export default {
-
+    components:{
+        mine
+    }
 }
 </script>
 

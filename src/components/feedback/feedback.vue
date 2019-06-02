@@ -65,6 +65,7 @@ export default {
             padding: 0 .2rem 0;
             background: #fff;
             position: relative;
+            padding-top: .9rem;
         }
         .main>.box1{
             display: block;
@@ -154,6 +155,7 @@ export default {
             padding: 0 8px;
             box-sizing: border-box;
             background: #FCFAFC;
+            font-size: .2rem;
             border: 1px solid #ddd;
             color: #666;
         }

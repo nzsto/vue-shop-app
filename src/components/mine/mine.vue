@@ -19,33 +19,33 @@
         </div>
         <div class="content">
             <ul>
-                <li class="crow-s">
+                <router-link class="crow-s" to="/collect" tag="li">
                     <p>
                         <i>
                             <img src="https://cmsstatic.dataoke.com//wap_new/user/images/icon/wode_icon_like.svg">
                         </i>
                         <span>我的购物车</span>
                     </p>
-                </li>
-                <li class="crow-s">
+                </router-link>
+                <router-link class="crow-s" to="/footermark" tag="li">
                     <p>
                         <i>
                             <img src="https://cmsstatic.dataoke.com//wap_new/user/images/icon/wode_icon_history.svg">
                         </i>
                         <span>浏览记录</span>
                     </p>
-                </li>
+                </router-link>
             </ul>
             <div class="hr"></div>
              <ul>
-                 <li class="crow-s">
+                 <router-link class="crow-s" to="/feedback" tag="li">
                      <p>
                          <i>
                              <img src="https://cmsstatic.dataoke.com//wap_new/user/images/icon/wode_icon_feedback.svg">
                          </i>
                          <span>意见反馈</span>
                      </p>
-                 </li>
+                 </router-link>
                  <li class="crow-s">
                      <p>
                          <i>
@@ -93,7 +93,8 @@ export default {
         .header>.cent{
             height: 44vw;
             max-height: 22rem;
-            margin: 0 .4rem;
+            margin: 0 .2rem;
+            overflow: hidden;
         }
         .header>.cent>.center{
             height: 1.4rem;
@@ -106,15 +107,16 @@ export default {
         }
         .header>.cent>.center>.img>img{
             border-radius: 50%;
-            width: 80%;
+            width: 100%;
             min-width: 1.1rem;
             margin: .2rem;
             border: 0;
-            box-shadow: 0 0 0 4px rgba(255,255,255,.3);
+            box-shadow: 0 0 0 5px rgba(255,255,255,.3);
         }
         .header>.cent>.center>.info>p{
             padding-top: 60%;
             font-size: .3rem;
+            margin-left: .5rem;
         }
         .header>.cent>.center>.info>p>a{
             color: #fff;
@@ -132,14 +134,14 @@ export default {
         }
         .content>ul>.crow-s>p{
             display: flex;
-            margin:0 .4rem 0 .4rem;
+            margin:0 .1rem 0 .1rem;
         }
         .content>ul>.crow-s>p>i{
             padding: 0 .1rem;
         }
         .content>ul>.crow-s>p>span{
-            margin-top: .3rem;
-            margin-left: .3rem;
+            margin-top: .1rem;
+            margin-left: .06rem;
         }
         img{
             vertical-align: middle;
