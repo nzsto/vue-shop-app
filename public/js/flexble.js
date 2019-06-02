@@ -1,118 +1,49 @@
- (function(win, lib) {
-     var doc = win.document;
-     var docEl = doc.documentElement;
-     var metaEl = doc.querySelector('meta[name="viewport"]');
-     var flexibleEl = doc.querySelector('meta[name="flexible"]');
-     var dpr = 0;
-     var scale = 0;
-     var tid;
-     var flexible = lib.flexible || (lib.flexible = {});
+//designWidth:设计稿的实际宽度值，需要根据实际设置
+//maxWidth:制作稿的最大宽度值，需要根据实际设置
+//这段js的最后面有两个参数记得要设置，一个为设计稿实际宽度，一个为制作稿最大宽度，例如设计稿为750，最大宽度为750，则为(750,750)
+;(function(designWidth, maxWidth) {
+	var doc = document,
+	win = window,
+	docEl = doc.documentElement,
+	remStyle = document.createElement("style"),
+	tid;
 
-     if (metaEl) {
- //        console.warn('将根据已有的meta标签来设置缩放比例');
-         var match = metaEl.getAttribute('content').match(/initial\-scale=([\d\.]+)/);
-         if (match) {
-             scale = parseFloat(match[1]);
-             dpr = parseInt(1 / scale);
-         }
-     } else if (flexibleEl) {
-         var content = flexibleEl.getAttribute('content');
-         if (content) {
-             var initialDpr = content.match(/initial\-dpr=([\d\.]+)/);
-             var maximumDpr = content.match(/maximum\-dpr=([\d\.]+)/);
-             if (initialDpr) {
-                 dpr = parseFloat(initialDpr[1]);
-                 scale = parseFloat((1 / dpr).toFixed(2));
-             }
-             if (maximumDpr) {
-                 dpr = parseFloat(maximumDpr[1]);
-                 scale = parseFloat((1 / dpr).toFixed(2));
-             }
-         }
-     }
+	function refreshRem() {
+		var width = docEl.getBoundingClientRect().width;
+		maxWidth = maxWidth || 540;
+		width>maxWidth && (width=maxWidth);
+		var rem = width * 100 / designWidth;
+		remStyle.innerHTML = 'html{font-size:' + rem + 'px;}';
+	}
 
-     if (!dpr && !scale) {
-         var isAndroid = win.navigator.appVersion.match(/android/gi);
-         var isIPhone = win.navigator.appVersion.match(/iphone/gi);
-         var devicePixelRatio = win.devicePixelRatio;
-         if (isIPhone) {
-             // iOS下，对于2和3的屏，用2倍的方案，其余的用1倍方案
-             if (devicePixelRatio >= 3 && (!dpr || dpr >= 3)) {
-                 dpr = 3;
-             } else if (devicePixelRatio >= 2 && (!dpr || dpr >= 2)){
-                 dpr = 2;
-             } else {
-                 dpr = 1;
-             }
-         } else {
-             // 其他设备下，仍旧使用1倍的方案
-             dpr = 1;
-         }
-         scale = 1 / dpr;
-     }
+	if (docEl.firstElementChild) {
+		docEl.firstElementChild.appendChild(remStyle);
+	} else {
+		var wrap = doc.createElement("div");
+		wrap.appendChild(remStyle);
+		doc.write(wrap.innerHTML);
+		wrap = null;
+	}
+	//要等 wiewport 设置好后才能执行 refreshRem，不然 refreshRem 会执行2次；
+	refreshRem();
 
-     docEl.setAttribute('data-dpr', dpr);
-     if (!metaEl) {
-         metaEl = doc.createElement('meta');
-         metaEl.setAttribute('name', 'viewport');
-         metaEl.setAttribute('content', 'initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
-         if (docEl.firstElementChild) {
-             docEl.firstElementChild.appendChild(metaEl);
-         } else {
-             var wrap = doc.createElement('div');
-             wrap.appendChild(metaEl);
-             doc.write(wrap.innerHTML);
-         }
-     }
+	win.addEventListener("resize", function() {
+		clearTimeout(tid); //防止执行两次
+		tid = setTimeout(refreshRem, 300);
+	}, false);
 
-     function refreshRem(){
-         var width = docEl.getBoundingClientRect().width;
-         
-         if (width / dpr > 768) {
-             width = 768 * dpr;
-         }
-         var rem = width / 7.5;
-         docEl.style.fontSize = rem + 'px';
-         flexible.rem = win.rem = rem;
-     }
+	win.addEventListener("pageshow", function(e) {
+		if (e.persisted) { // 浏览器后退的时候重新计算
+			clearTimeout(tid);
+			tid = setTimeout(refreshRem, 300);
+		}
+	}, false);
 
-     win.addEventListener('resize', function() {
-         clearTimeout(tid);
-         tid = setTimeout(refreshRem, 300);
-     }, false);
-     win.addEventListener('pageshow', function(e) {
-         if (e.persisted) {
-             clearTimeout(tid);
-             tid = setTimeout(refreshRem, 300);
-         }
-     }, false);
-
-     if (doc.readyState === 'complete') {
-         doc.body.style.fontSize = 12 * dpr + 'px';
-     } else {
-         doc.addEventListener('DOMContentLoaded', function(e) {
-             doc.body.style.fontSize = 12 * dpr + 'px';
-         }, false);
-     }
-
-
-     refreshRem();
-
-     flexible.dpr = win.dpr = dpr;
-     flexible.refreshRem = refreshRem;
-     flexible.rem2px = function(d) {
-         var val = parseFloat(d) * this.rem;
-         if (typeof d === 'string' && d.match(/rem$/)) {
-             val += 'px';
-         }
-         return val;
-     }
-     flexible.px2rem = function(d) {
-         var val = parseFloat(d) / this.rem;
-         if (typeof d === 'string' && d.match(/px$/)) {
-             val += 'rem';
-         }
-         return val;
-     }
-
- })(window, window['lib'] || (window['lib'] = {}));
+	if (doc.readyState === "complete") {
+		doc.body.style.fontSize = "16px";
+	} else {
+		doc.addEventListener("DOMContentLoaded", function(e) {
+			doc.body.style.fontSize = "16px";
+		}, false);
+	}
+})(750, 750);

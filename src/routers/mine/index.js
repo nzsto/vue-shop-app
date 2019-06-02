@@ -1,7 +1,7 @@
 export default {
   name: 'mine',
   path: '/mine',
-  component: () => ("@components/mine/mine"),
+  component: () => ("@views/mine/Mine"),
   meta: {
     TopheaderFlag: false
   }

@@ -33,8 +33,6 @@
 let eventList = {
 
 }
-
-
 const $on = (eventName,callback)=>{
     if(!eventList[eventName]){
         eventList[eventName] = [];
@@ -55,7 +53,6 @@ const $emit = (eventName,params)=>{
 const $off = (eventName,callback)=>{
     if(eventList[eventName]){
         if(callback){
-            
             let index = eventList[eventName].indexOf(callback);
             eventList[eventName].splice(index,1);
 
@@ -64,8 +61,6 @@ const $off = (eventName,callback)=>{
         }
     }
 }
-
-
 export default {
     $on,
     $emit,
