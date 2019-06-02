@@ -81,8 +81,8 @@ export default {
         align-items: center;
         font-size:.3rem;
     }
-      #footer>ul>.router-link-active{
-          color:#c33;
+      #footer>ul>.active{
+          color:linear-gradient(to left,#FA4DBE 0,#FBAA58 100%);
       }
      #footer>ul>li>i{
          font-size:1.5rem;

@@ -24,7 +24,7 @@
                         <i>
                             <img src="https://cmsstatic.dataoke.com//wap_new/user/images/icon/wode_icon_like.svg">
                         </i>
-                        我的购物车
+                        <span>我的购物车</span>
                     </p>
                 </li>
                 <li class="crow-s">
@@ -32,7 +32,7 @@
                         <i>
                             <img src="https://cmsstatic.dataoke.com//wap_new/user/images/icon/wode_icon_history.svg">
                         </i>
-                        浏览记录
+                        <span>浏览记录</span>
                     </p>
                 </li>
             </ul>
@@ -43,7 +43,7 @@
                          <i>
                              <img src="https://cmsstatic.dataoke.com//wap_new/user/images/icon/wode_icon_feedback.svg">
                          </i>
-                         意见反馈
+                         <span>意见反馈</span>
                      </p>
                  </li>
                  <li class="crow-s">
@@ -51,7 +51,7 @@
                          <i>
                              <img src="https://cmsstatic.dataoke.com//wap_new/user/images/icon/wode_icon_servicer.svg">
                          </i>
-                         联系客服
+                         <span>联系客服</span>
                      </p>
                  </li>
                  <li class="crow-s">
@@ -59,7 +59,7 @@
                          <i>
                              <img src="https://cmsstatic.dataoke.com//wap_new/user/images/icon/wode_icon_help.svg">
                          </i>
-                         领劵帮助
+                         <span>领劵帮助</span>
                      </p>
                  </li>
              </ul>
@@ -136,6 +136,10 @@ export default {
         }
         .content>ul>.crow-s>p>i{
             padding: 0 .1rem;
+        }
+        .content>ul>.crow-s>p>span{
+            margin-top: .3rem;
+            margin-left: .3rem;
         }
         img{
             vertical-align: middle;

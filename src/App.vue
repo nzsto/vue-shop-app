@@ -1,6 +1,6 @@
 <template>
    <div id="app">
-     <Topheader/>
+     <Topheader v-if="$route.meta.TopheaderFlag"/>
      <keep-alive :exclude="/(Homepage|Product)/">
         <component :is="pageCom"></component>
      </keep-alive>
