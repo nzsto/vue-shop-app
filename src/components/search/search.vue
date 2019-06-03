@@ -67,7 +67,8 @@ export default {
 }
 .getQuan>h3{
     padding: .2rem 0 0 .3rem;
-    height: 110px;
+    height: 1.1rem;
+    font-weight: normal
 }
 .getQuan>ul{
     height: 2rem;
@@ -81,7 +82,7 @@ export default {
     height: 4px;
     overflow: hidden;
     background: linear-gradient(to left,#FF83B7 0,#FFAF98 100%);
-    top: 250px;
+    top: 2.55rem;
     display: block;
     position: absolute;
     left: 22%;
@@ -93,15 +94,15 @@ export default {
 }
 .getQuan>ul>li>i{
     font-size: .5rem;
-    height: 90px;
-    line-height: 90px;
+    height: .9rem;
+    line-height: .9rem;
     text-align: center;
-    margin: auto auto 20px;
+    margin: auto auto .2rem;
     color: #fff;
-    border-radius: 45px;
+    border-radius: .45rem;
     background: linear-gradient(to left,#FF83B7 0,#FFAF98 100%);
     display: block;
-    width: 90px;
+    width: .9rem;
 }
 .getQuan>ul>li>p{
     font-size: .24rem;
@@ -126,16 +127,16 @@ export default {
     margin-bottom: 15px;
 }
 .content>.hotSearch>div>a{
-    margin: 0 1% 16px;
+    margin: 0 1% .16rem;
     display: inline-block;
     background: #F6F6F6;
-    border-radius: 30px;
+    border-radius: .3rem;
     font-size: .3rem;
-    padding: 0 30px;
+    padding: 0 .3rem;
     max-width: 88%;
     color: #666;
-    height: 54px;
-    line-height: 54px;
+    height: .54rem;
+    line-height: .54rem;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -149,22 +150,22 @@ export default {
 }
 .content>.searchList>li{
     border-bottom: solid 2px #eee;
-    padding: 0 20px;
-    height: 100px;
+    padding: 0 .2rem;
+    height: 1rem;
     width: 100%;
  
 }
 .content>.searchList>li>.guanjianzi{
  width: 80%;
  float: left;
- padding: 30px 10px
+ padding: .3rem .1rem
 }
 .content>.searchList>li>.guanjianzi>span{
     font-size: .3rem
 }
 .content>.searchList>li>i{
     font-size: .4rem;
-    margin:35px 40px;
+    margin:.35rem .4rem;
     display: inline-block;
 }
 </style>
