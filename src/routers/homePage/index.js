@@ -1,5 +1,5 @@
 export default {
-    path: '/homepage',
+    path: '/homePage',
     name:'homePage',
-    compoent:()=>import('@views/homepage/HomePage')
+    component:()=>import('@views/homepage/HomePage')
 }
