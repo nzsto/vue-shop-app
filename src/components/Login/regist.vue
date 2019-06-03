@@ -105,6 +105,7 @@ $(function () {
     // $('#luo-regist input[name=zhuce]').on('click',function(){
     //     regAll()
     // })
+})
 </script>
 <style scoped>
     #luo-regist h2{
