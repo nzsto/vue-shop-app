@@ -1,50 +1,72 @@
 <template>
-<div class="z_menu">
-    <div class="z_menu_l">
-        <a class="active" href="">女装</a>
-        <a href="">男装</a>
-        <a href="">女装</a>
-        <a href="">男装</a>
-        <a href="">女装</a>
-        <a href="">男装</a>
-        <a href="">女装</a>
-        <a href="">男装</a>
-        <a href="">女装</a>
-        <a href="">男装</a>
-        <a href="">女装</a>
-        <a href="">男装</a>
-        <a href="">女装</a>
-        <a href="">男装</a>
-        <a href="">女装</a>
-        <a href="">男装</a>
-        <a href="">女装</a>
-        <a href="">男装</a>
-        <a href="">女装</a>
-        <a href="">男装</a>
-        <a href="">女装</a>
-        <a href="">男装</a>
-        <a href="">女装</a>
-        <a href="">男装</a>
-        <a href="">女装</a>
-        <a href="">男装</a>
-        <a href="">女装</a>
-        <a href="">男装</a>
-    </div>
-    <div class="z_menu_r">
-        <ul>
-            <li><a href=""><img src="../../../public/images/xxx.webp"><span>T恤/短袖</span></a></li>
-            <li><a href=""><img src="../../../public/images/xxx.webp"><span>T恤/短袖</span></a></li>
-            <li><a href=""><img src="../../../public/images/xxx.webp"><span>T恤/短袖</span></a></li>
-            <li><a href=""><img src="../../../public/images/xxx.webp"><span>T恤/短袖</span></a></li>
-            <li><a href=""><img src="../../../public/images/xxx.webp"><span>T恤/短袖</span></a></li>
-            <li><a href=""><img src="../../../public/images/xxx.webp"><span>T恤/短袖</span></a></li>
-            <li><a href=""><img src="../../../public/images/xxx.webp"><span>T恤/短袖</span></a></li>
-            <li><a href=""><img src="../../../public/images/xxx.webp"><span>T恤/短袖</span></a></li>
-            <li><a href=""><img src="../../../public/images/xxx.webp"><span>T恤/短袖</span></a></li>
-            <li><a href=""><img src="../../../public/images/xxx.webp"><span>T恤/短袖</span></a></li>
-        </ul>
+<div>
+    <Header :title='title' :iconfont='icon'/>
+    <div class="z_menu">
+        <div class="z_menu_l">
+            <a class="active" href="">女装</a>
+            <a href="">男装</a>
+            <a href="">女装</a>
+            <a href="">男装</a>
+            <a href="">女装</a>
+            <a href="">男装</a>
+            <a href="">女装</a>
+            <a href="">男装</a>
+            <a href="">女装</a>
+            <a href="">男装</a>
+            <a href="">女装</a>
+            <a href="">男装</a>
+            <a href="">女装</a>
+            <a href="">男装</a>
+            <a href="">女装</a>
+            <a href="">男装</a>
+            <a href="">女装</a>
+            <a href="">男装</a>
+            <a href="">女装</a>
+            <a href="">男装</a>
+            <a href="">女装</a>
+            <a href="">男装</a>
+            <a href="">女装</a>
+            <a href="">男装</a>
+            <a href="">女装</a>
+            <a href="">男装</a>
+            <a href="">女装</a>
+            <a href="">男装</a>
+        </div>
+        <div class="z_menu_r">
+            <ul>
+                <li><a href=""><img src="../../../public/images/xxx.webp"><span>T恤/短袖</span></a></li>
+                <li><a href=""><img src="../../../public/images/xxx.webp"><span>T恤/短袖</span></a></li>
+                <li><a href=""><img src="../../../public/images/xxx.webp"><span>T恤/短袖</span></a></li>
+                <li><a href=""><img src="../../../public/images/xxx.webp"><span>T恤/短袖</span></a></li>
+                <li><a href=""><img src="../../../public/images/xxx.webp"><span>T恤/短袖</span></a></li>
+                <li><a href=""><img src="../../../public/images/xxx.webp"><span>T恤/短袖</span></a></li>
+                <li><a href=""><img src="../../../public/images/xxx.webp"><span>T恤/短袖</span></a></li>
+                <li><a href=""><img src="../../../public/images/xxx.webp"><span>T恤/短袖</span></a></li>
+                <li><a href=""><img src="../../../public/images/xxx.webp"><span>T恤/短袖</span></a></li>
+                <li><a href=""><img src="../../../public/images/xxx.webp"><span>T恤/短袖</span></a></li>
+            </ul>
+        </div>
     </div>
 </div>
+
+<script>
+import Header from "@common/header/Header";
+export default {
+    data(){
+        return{
+            title:'我的分类',
+            icon:{
+                fh:'&#xe668;',
+                zj:"&#xe611;"
+            }
+        }
+    },
+    components:{
+        Header
+    }
+}
+</script>
+
 </template>
 <style scoped>
 .z_menu{
@@ -99,5 +121,3 @@
     color:#333;
     font-size: .266667rem
 }
-
-</style>

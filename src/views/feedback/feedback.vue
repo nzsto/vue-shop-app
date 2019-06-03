@@ -1,26 +1,30 @@
 <template>
     <div>
         <Header :title='title' :iconfont='icon'/>
+        <Feedback />
     </div>
 </template>
+
 <script>
+import Feedback from "@components/feedback/feedback";
 import Header from "@common/header/Header";
 export default {
+    components:{
+        Header,
+        Feedback
+    },
     data(){
         return{
-            title:'我的首页',
+            title:'意见反馈',
             icon:{
-                fh:'&#xe611;',
-                zj:"&#xe60c;"
+                fh:'&#xe668;',
+                zj:"&#xe60e;"
             }
         }
-    },
-    components:{
-        Header
     }
 }
 </script>
 
-<style scoped>
+<style>
 
 </style>

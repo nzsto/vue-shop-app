@@ -1,8 +1,8 @@
 <template>
-    <div id="app">
+   <div id="app">
         <router-view></router-view>
-        <TabBar/>
-    </div>
+     <TabBar/>
+   </div>
 </template>
 <script>
 import TabBar from "@common/tabBar/TabBar"

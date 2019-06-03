@@ -16,22 +16,22 @@ export default {
             navs:[
                 {
                     title:'首页',
-                    icon:'&#xe751;',
+                    icon:'&#xe606;',
                     path:'/homepage'
                 },
                 {
                     title:'分类',
-                    icon:'&#xe78e;',
+                    icon:'&#xe60a;',
                     path:'/sort'
                 },
                 {
                     title:'收藏',
-                    icon:'&#xe733;',
-                    path:'/shopcar'
+                    icon:'&#xe607;',
+                    path:'/collect'
                 },
                 {
                     title:'我的',
-                    icon:'&#xe788;',
+                    icon:'&#xe60b;',
                     path:'/mine'
                 }
             ]
@@ -48,7 +48,7 @@ export default {
     position:fixed;
     left:0;
     bottom:0;
-
+    z-index: 10;
 
 }
 .z_tabbar ul{

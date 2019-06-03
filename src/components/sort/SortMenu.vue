@@ -2,7 +2,7 @@
 
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .sa{
     width:120px
 }
