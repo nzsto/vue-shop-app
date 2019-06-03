@@ -1,8 +1,8 @@
 <template>
    <div id="app">
         <router-view></router-view>
-
-     <TabBar/>
+     
+     <TabBar v-if="$route.meta.TabBarFlag"/>
    </div>
 </template>
 <script>

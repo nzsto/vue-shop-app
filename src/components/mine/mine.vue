@@ -9,9 +9,9 @@
                         </a>                 
                     <div class="info">
                         <p>
-                            <a href="#">登录</a>
+                            <router-link tag="a" to="/login">登录</router-link>
                             <i>/</i>
-                            <a href="#">注册</a>
+                            <router-link tag="a" to="/regist">注册</router-link>
                         </p>
                     </div>
                 </div>
