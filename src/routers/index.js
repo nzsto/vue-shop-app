@@ -9,6 +9,8 @@ import mine from './mine'
 import collect from "./collect";
 import footermark from "./footermark";
 import feedback from "./feedback";
+import login from "./login";
+import regist from "./regist";
 Vue.use(Router)
 
 export default new Router({
@@ -26,6 +28,8 @@ export default new Router({
         mine,
         collect,
         footermark,
-        feedback
+        feedback,
+        login,
+        regist
     ]
 })

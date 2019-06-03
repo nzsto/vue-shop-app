@@ -1,7 +1,7 @@
 <template>
      <div id="luo-regist">
         <h2>
-            <a href="#"><i class="iconfont">&#xe668;</i></a>
+            <router-link tag="a" to="/collect"><i class="iconfont">&#xe668;</i></router-link>
             <span>登录</span>
         </h2>
         <form action="" class="con">
@@ -25,7 +25,7 @@
             <p class="p-red">密码为8-16位的数字或字母！</p>
             <input type="submit" value="登录" class="sub">
         </form>
-        <p class="denglu">没有账号？立即<a href="#">注册</a></p>
+        <p class="denglu">没有账号？立即<router-link to="/regist" tag="a">注册</router-link></p>
         <p class="end"><span>验证码登录</span><span>找回密码</span></p>
     </div>
 </template>
@@ -34,7 +34,7 @@ export default {
     
 }
 </script>
-<style>
+<style scoped>
     #luo-regist h2{
     color:#666;
     font-weight:normal;

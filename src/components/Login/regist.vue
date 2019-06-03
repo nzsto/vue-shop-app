@@ -1,7 +1,7 @@
 <template>
      <div id="luo-regist">
         <h2>
-            <a href="#"><i class="iconfont">&#xe668;</i></a>
+            <router-link tag="a" to="/login"><i class="iconfont">&#xe668;</i></router-link>
             <span>注册</span>
         </h2>
         <form action="" class="con">
@@ -35,7 +35,7 @@
             <input type="submit" value="注册" class="sub">
         </form>
         <p class="agree">点击“注册”表示您已同意 <a href="#">《领券吧用户协议》</a></p>
-        <p class="cent">已有账号？点击<a href="#">登录</a></p>
+        <p class="cent">已有账号？点击<router-link to="/login" tag="a">登录</router-link></p>
     </div>
 </template>
 <script>
@@ -43,7 +43,7 @@ export default {
     
 }
 </script>
-<style>
+<style scoped>
     #luo-regist h2{
     color:#666;
     font-weight:normal;

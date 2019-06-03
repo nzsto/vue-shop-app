@@ -1,5 +1,8 @@
 export default {
     path: '/homepage',
     name:'homePage',
-    component:()=>import('@views/homepage/HomePage')
+    component:()=>import('@views/homepage/HomePage'),
+    meta: {
+        TabBarFlag: true
+    }
 }
