@@ -39,9 +39,6 @@
     </div>
 </template>
 <script>
- $("input").on("click",function(){
-    $(".p-red").toggle()
-})
 export default {
     
 }
@@ -151,7 +148,7 @@ export default {
     font-size: .3rem;
     padding-top:.3rem;
     border-top:1px solid #FC3F78;
-    display: none;
+    /* display: none; */
 }
 
 </style>
