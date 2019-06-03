@@ -39,9 +39,6 @@
     </div>
 </template>
 <script>
- $("input").on("click",function(){
-    $(".p-red").toggle()
-})
 export default {
     
 }
