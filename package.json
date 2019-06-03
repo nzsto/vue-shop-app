@@ -28,6 +28,7 @@
     "eslint-plugin-vue": "^5.0.0",
     "sass": "^1.18.0",
     "sass-loader": "^7.1.0",
+    "vue-cli": "^2.9.6",
     "vue-lazyload": "^1.2.6",
     "vue-template-compiler": "^2.6.10"
   },
@@ -36,9 +37,7 @@
     "env": {
       "node": true
     },
-    "extends": [
-      "plugin:vue/essential"
-    ],
+    "extends": [],
     "rules": {},
     "parserOptions": {
       "parser": "babel-eslint"
