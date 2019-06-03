@@ -7,10 +7,15 @@
 </template>
 <script>
 import TabBar from "@common/tabBar/TabBar"
+
 export default {
     name:"App",
     components:{
-        TabBar
+        TabBar,
+
     }
 }
 </script>
+<style>
+
+</style>
