@@ -229,6 +229,9 @@
     </div>
 </template>
 <script>
+ $("input").on("click",function(){
+    $(".p-red").toggle()
+})
 export default {
     
 }
@@ -300,9 +303,9 @@ export default {
 }
 /* 右上角显示隐藏 */
 #luo-details .side{
-    /* display: none; */
+    display: none;
     position: fixed;
-    top:1.3rem;
+    top:1.2rem;
     right:.2rem;
     border-radius: .133rem;
     z-index: 3;
