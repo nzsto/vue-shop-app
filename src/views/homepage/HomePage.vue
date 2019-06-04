@@ -3,17 +3,17 @@
         <header class="header">
             <router-link v-html='icon.fh' class="iconfont" tag="i" to="/search"></router-link>
             <h2>{{title}}</h2>
-            <span v-html='icon.zj' class="iconfont"></span>
+            <router-link v-html='icon.zj' class="iconfont" tag="span" to="/footermark"></router-link>
         </header>
         <HomePage/>
     </div>
 </template>
 <script>
-import HomePage from "@components/homepage/homepage";
+import HomePage from "@components/homepage/homepage"
 export default {
     data(){
         return{
-            title:'我的首页',
+            title:'粉丝福利购',
             icon:{
                 fh:'&#xe611;',
                 zj:"&#xe60c;"
@@ -52,7 +52,7 @@ export default {
             height: .9rem;
             text-align: center;
             line-height: .9rem;
-            font-size: .3rem;
+            font-size: .4rem;
             color: #fff;
             font-weight: normal;
         }

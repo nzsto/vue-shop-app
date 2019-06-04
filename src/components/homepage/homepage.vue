@@ -1,12 +1,14 @@
 <template>
-      
-      <main class="content">
-          <div class="banner">
-              <a href="#">
-                <img src="/img/swiper.jpg" alt="">
-              </a>
-          </div>
-          <div class="banner2">
+    <main class="content">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+            <a href="#" class="swiper-slide"><img src="/img/swiper.jpg"/></a>
+            <a href="#"class="swiper-slide"><img src="/img/swiper.jpg"/></a>
+            <a href="#"class="swiper-slide"><img src="/img/swiper.jpg"/></a>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <div class="banner2">
             <a href="#">
               <img src="/img/O1CN01V87oyh2JJhwne0cQu_!!2053469401.gif" alt="">
             </a>
@@ -129,16 +131,28 @@
 </template>
 
 <script>
+import Swiper from 'swiper';
 export default {
     name:"homepage",
     created() {
+        this.initSwiper()
         
+    },
+    methods: {
+        initSwiper(){
+            var mySwiper=new Swiper('.swiper-container',{
+                direction:'horizontal',
+                loop:true,
+                pagination:{
+                    el:'.swiper-pagination'
+                }
+            })
+        }
     },
 }
 </script>
 
 <style scoped>
-
 /* main */
 
 .content{
@@ -147,17 +161,19 @@ export default {
     max-width:25rem
 
 }
-.content>.banner{
-    overflow: hidden;
+.swiper-container{
+    width:100%;
+    overflow:hidden
 }
-.content>.banner>a{
-    float: left;
+.content .swiper-wrapper{
+    width:25rem
 }
-.content>.banner,.content>.banner>a{
+.content .swiper-wrapper,.content .swiper-wrapper a{
     height: 3.4rem;
-    background: #fff
+    background: #fff;
+    width:100%
 }
-.content>.banner>a>img{
+.content .swiper-wrapper a img{
     width: 100%;
     height: 100%;
     display: inline-block
