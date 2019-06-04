@@ -1,0 +1,56 @@
+<template>
+    <div class="header">
+        <router-link tag='i' to='/search' v-html='iconfont.fh' class="iconfont"></router-link>
+        <h2>{{title}}</h2>
+        <router-link tag="span" to="/footermark" v-html='iconfont.zj' class="iconfont"></router-link>
+    </div>
+</template>
+
+<script>
+export default { 
+    props:['title','iconfont']  
+}
+</script>
+
+<style scoped>
+    * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif, "Microsoft YaHei";
+        }
+
+        .header {
+            width: 100%;
+            height: .9rem;
+            position:fixed;
+            display: flex;
+            top:0;
+            z-index: 9;
+            background: linear-gradient(to left, #FA4DBE 0, #FBAA58 100%);
+        }
+
+        .header>h2 {
+            width: 100%;
+            height: .9rem;
+            text-align: center;
+            line-height: .9rem;
+            font-size: .3rem;
+            color: #fff;
+            font-weight: normal;
+        }
+        .header>i,.header>span{     
+            padding-top: 3.5%;
+            color: #fff;
+            font-size: .4rem;
+        }
+        .header>i{
+             padding-left: .3rem;
+        }
+        .header>span{
+             padding-right: .3rem;
+        }
+</style>

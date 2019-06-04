@@ -1,16 +1,24 @@
 <template>
    <div id="app">
-        <router-view></router-view>
+        <keep-alive>
+            <router-view v-if="$route.meta.keep_alive"></router-view>
+        </keep-alive>
+            <router-view v-if="!$route.meta.keep_alive"></router-view>
      
-     <TabBar/>
+     <TabBar v-if="$route.meta.TabBarFlag"/>
    </div>
 </template>
 <script>
 import TabBar from "@common/tabBar/TabBar"
+
 export default {
     name:"App",
     components:{
-        TabBar
+        TabBar,
+
     }
 }
 </script>
+<style>
+
+</style>

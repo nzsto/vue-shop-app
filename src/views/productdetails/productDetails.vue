@@ -232,6 +232,9 @@
 export default {
     
 }
+$(".i1").on("click",function(){
+        $(".side").toggle()
+    })
 </script>
 <style scoped>
 
