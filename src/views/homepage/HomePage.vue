@@ -19,7 +19,7 @@ export default {
                 zj:"&#xe60c;"
             }
         }
-    },
+    },   
     components:{
         HomePage
     }

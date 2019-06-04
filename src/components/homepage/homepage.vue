@@ -2,9 +2,9 @@
     <main class="content">
         <div class="swiper-container">
             <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="/img/swiper.jpg"/></div>
-            <div class="swiper-slide"><img src="/img/swiper.jpg"/></div>
-            <div class="swiper-slide"><img src="/img/swiper.jpg"/></div>
+                <div class="swiper-slide" v-for="(item,index) in swiperList" :key="item.slide_id">
+                    <img :src="item.silde_original">
+                </div>
             </div>
             <div class="swiper-pagination"></div>
         </div>
@@ -52,44 +52,20 @@
               ">更懂中国厨房</p>
             </div>
             <div class="swiper_show">
-               <ul>
-                 <div class="swiper_slide">
-                  <div class="swiper_cent">
+                <ul>
+                 <div class="swiper_slide" v-for="(item,index) in JYswiperList.slice(0,3)" ::key="item.id">
+                    <div class="swiper_cent">
                         <a href="#" class="img" data-addr="/index.php?r=p/d&amp;id=20027488&amp;source=mp">
-                          <img src="/img/dian.webp" alt="">
+                          <img :src="item.product_thumb" alt="">
                         </a>
-                        <p class="name">【九阳】电饭煲智能全自动5L</p>
+                        <p class="name">{{item.sku_title}}</p>
                         <p class="money">
-                          <i>¥</i>249 
+                          <i>¥</i>{{item.product_price}} 
                           <del>¥339</del>
                         </p>
-                  </div>
-                 </div>
-                 <div class="swiper_slide">
-                    <div class="swiper_cent">
-                          <a href="#" class="img" data-addr="/index.php?r=p/d&amp;id=20027488&amp;source=mp">
-                            <img src="/img/dian.webp" alt="">
-                          </a>
-                          <p class="name">【九阳】电饭煲智能全自动5L</p>
-                          <p class="money">
-                            <i>¥</i>249 
-                            <del>¥339</del>
-                          </p>
                     </div>
-                  </div>
-                   <div class="swiper_slide">
-                      <div class="swiper_cent" style="border: none">
-                            <a href="#" class="img" data-addr="/index.php?r=p/d&amp;id=20027488&amp;source=mp">
-                              <img src="/img/dian.webp" alt="">
-                            </a>
-                            <p class="name">【九阳】电饭煲智能全自动5L</p>
-                            <p class="money">
-                              <i>¥</i>249 
-                              <del>¥339</del>
-                            </p>
-                      </div>
-                    </div>
-               </ul>
+                 </div>               
+                </ul>
                </div>
             </div>
         </div>
@@ -106,21 +82,21 @@
               </div>
           </h3>
         <ul class="goodsList">
-          <li>
+          <li  v-for="(item,index) in goodsList" :key="item.product_id">
             <a href="#">
               <p>
-                <img src="/img/shoe.webp" alt="">
+                <img :src="item.thumb" alt="">
               </p>
             </a>
               <div class="cent">
-                <h3 class="tianmao">【医格】去眼袋眼纹眼霜15ml</h3>
+                <h3 class="tianmao">{{item.brand_name}}</h3>
                 <div class="col-aaa" style="opacity: 1;">
-                  <span>天猫价 ¥79</span><span class="fr">已售11.2万件</span>
+                  <span>天猫价 ¥{{item.product_price}}</span><span class="fr">已售{{item.product_price}}件</span>
                 </div>
                 <div class="money">    
                   <span class="">
                     <i>¥</i>
-                    29
+                    {{item.super_number}}
                   </span>
                   <i class="iconfont icongouwuchekong"></i>
                 </div>
@@ -132,26 +108,38 @@
 
 <script>
 import Swiper from 'swiper';
+ import Vuex from "vuex";
 export default {
     name:"homepage",
     created() {
-        this.initSwiper()
-        
+        this.actionsIGL()
+        this.actionsSL()
+        this.actionsJYSL()
+        //  this.$nextTick(()=>{
+        //         var mySwiper=new Swiper('.swiper-container',{
+        //             direction:'horizontal',
+        //             loop:true,
+        //             autoplay:true,
+        //             pagination:{
+        //                 el:'.swiper-pagination'
+        //             }
+        //         })
+        //     })
+    },
+     computed: {
+        ...Vuex.mapState({
+            goodsList:state=>state.homepage.indexGoodsLists,
+            swiperList:state=>state.homepage.indexSwiperLists,
+            JYswiperList:state=>state.homepage.indexJYSwiperLists
+        }),
+       
     },
     methods: {
-        initSwiper(){
-            this.$nextTick(()=>{
-                var mySwiper=new Swiper('.swiper-container',{
-                direction:'horizontal',
-                loop:true,
-                autoplay:true,
-                pagination:{
-                    el:'.swiper-pagination'
-                }
-            })
-            })
-            
-        }
+         ...Vuex.mapActions({
+            actionsIGL:"homepage/actionsIGL",
+            actionsSL:"homepage/actionsSL",
+            actionsJYSL:"homepage/actionsJYSL"
+        })
     },
 }
 </script>
@@ -278,13 +266,12 @@ export default {
     width: 100%;
 }
 .swiper_show>ul>.swiper_slide{
-    width: 33.3%;
+    width: 32%;
     float:left;
-
+    border-right: 1px solid rgb(230, 230, 230)
 }
 .swiper_show>ul>.swiper_slide>.swiper_cent{
-    margin-right:10px;
-    border-right: 1px solid rgb(230, 230, 230)
+    margin:0 11px;
 
 }
 .swiper_cent>a>img{
@@ -384,7 +371,7 @@ export default {
 }
 .goodsList>li>.cent>.col-aaa{
     padding-top: .1rem;
-    font-size: .24rem;
+    font-size: .29rem;
     color: #aaa;
     line-height: .4rem;
     padding-right: .2rem;
