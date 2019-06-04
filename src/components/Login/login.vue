@@ -8,7 +8,7 @@
             <div class="haoma">
                 <i class="iconfont">&#xe615;</i>
                 <p>
-                    <input type="text" placeholder="手机号码" required>
+                    <input type="text" placeholder="手机号码" name="haoma" required>
                     <i class="iconfont">&#xe669;</i>
                 </p>
             </div>
@@ -17,22 +17,74 @@
             <div class="mima">
                 <i class="iconfont">&#xe604;</i>
                 <p>
-                    <input type="password" placeholder="密码" required>
+                    <input type="password" placeholder="密码" name="mima" required>
                     <i class="iconfont">&#xe63b;</i>
                 </p>
             </div>
             <p class="xian"></p>
             <p class="p-red">密码为8-16位的数字或字母！</p>
-            <input type="submit" value="登录" class="sub">
+            <input type="submit" value="登录" class="sub" name="login">
         </form>
         <p class="denglu">没有账号？立即<router-link to="/regist" tag="a">注册</router-link></p>
         <p class="end"><span>验证码登录</span><span>找回密码</span></p>
     </div>
 </template>
 <script>
+
 export default {
     
 }
+
+var haoma = $("input[name=haoma]").val()
+var password = $("input[name=mima]").val()
+
+//本地存储
+function login(){
+    if(localStorage.user){
+        arr = eval(localStorage.user);//获取localStorage
+        var k = 0;
+        for(e in arr){
+            if(haoma==arr[e].loginName){
+                if(mima==arr[e].loginPsd){
+                    alert('登录成功');
+                    $(".p-red").hide()
+                    clear();
+                    k = 0;
+                    return;
+                }else{
+                    $(".p-red").show()
+                    alert('密码错误');
+                    clear();
+                    k = 0;
+                    return;
+                }
+            }else{
+                k = 1;
+            }
+        }
+        if(k==1){
+            alert('登录成功');
+            $(".p-red").show()
+            clear();
+        }
+    }else{
+        $(".p-red").show()
+        clear();
+    }
+}
+function clear(){
+    $('input[name=haoma]').val('');
+    $("input[name=mima]").val('');
+}
+
+
+$(function () {
+    $('#luo-regist input[name=login]').on('click',function(){
+        login()
+    })
+
+})
+
 </script>
 <style scoped>
     #luo-regist h2{
@@ -139,7 +191,7 @@ export default {
     font-size: .3rem;
     padding-top:.3rem;
     border-top:1px solid #FC3F78;
-    /* display: none; */
+    display: none;
 }
 
 /* 登录 */

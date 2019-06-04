@@ -13,7 +13,7 @@
                 </p>
             </div>
             <p class="xian .xian-red"></p>
-            <p class="p-red">请输入正确11位的手机号码！</p>
+            <p class="p-red1">请输入正确11位的手机号码！</p>
             <div class="yanzheng">
                 <i class="iconfont">&#xe657;</i>
                 <div>
@@ -22,17 +22,17 @@
                 </div>
             </div>
             <p class="xian"></p>
-            <p class="p-red">验证码不能为空！</p>
+            <p class="p-red2">验证码不能为空！</p>
             <div class="mima">
                 <i class="iconfont">&#xe604;</i>
                 <p>
-                    <input type="password" placeholder="密码" required>
+                    <input type="password" placeholder="密码" name="mima" required>
                     <i class="iconfont">&#xe63b;</i>
                 </p>
             </div>
             <p class="xian"></p>
-            <p class="p-red">密码为8-16位的数字或字母！</p>
-            <input type="submit" value="注册" class="sub">
+            <p class="p-red3">密码为8-16位的数字或字母！</p>
+            <input type="submit" value="注册" class="sub" name="regist">
         </form>
         <p class="agree">点击“注册”表示您已同意 <a href="#">《领券吧用户协议》</a></p>
         <p class="cent">已有账号？点击<router-link to="/login" tag="a">登录</router-link></p>
@@ -42,6 +42,89 @@
 export default {
     
 }
+ var reg1 = /^1\d{10}$/;  
+var reg2 = /^\d{4}$/;  
+var reg3 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{8,16}$/;   //至少8-16个字符，至少1个大写字母，1个小写字母和1个数字，其他可以是任意字符
+var haoma = $("input[name=haoma]").val()
+var yanzheng = $("input[name=yanzhengma]").val()
+var password = $("input[name=mima]").val()
+    
+
+ //手机号码验证
+function checkHaoma() {
+    if (!reg1.test(haoma)) {
+        $(".p-red1").show()
+        return false
+    }else{
+        $(".p-red1").hide()
+        return true
+    }
+
+}
+ //验证码
+function checkYan() {
+    if (!reg2.test(yanzheng)) {
+        $(".p-red2").show()
+        return false
+    }else{
+        $(".p-red2").hide()
+        return true
+    }
+
+}
+//密码验证
+function checkPassword() {
+    if (!reg3.test(password)) {
+        $(".p-red3").show()
+        return false
+    }else{
+        $(".p-red3").hide()
+        return true
+    }
+}
+
+//本地存储
+function ZhuCe(){
+    var arr = [];
+    if(localStorage.user){
+    arr = eval(localStorage.user);
+        for(e in arr){
+            if(haoma==arr[e].loginName){
+                alert('该账号已被注册');
+                clear();
+                return;
+            }
+        }
+    }
+    var user = {'loginName':haoma,'loginPsd':password};
+    arr.push(user);
+    localStorage.user=JSON.stringify(arr);
+    alert('注册成功');
+    clear();
+}
+function clear(){
+    $('input[name=haoma]').val('');
+    $('input[name=yanzhengma]').val('');
+    $("input[name=mima]").val('');
+}
+
+
+$(function () {
+    $('#luo-regist input[name=haoma]').on('click',function(){ 
+        checkHaoma()
+    })
+    $('#luo-regist input[name=mima]').on('click',function(){
+        checkPassword()
+    })
+    $('#luo-regist input[name=yanzhengma]').on('click',function(){
+        checkYan()
+    })
+    $('#luo-regist input[name=regist]').on('click',function(){
+        ZhuCe()
+    })
+
+
+})
 </script>
 <style scoped>
     #luo-regist h2{
@@ -143,12 +226,14 @@ export default {
     border-top:1px solid #ccc;
 }
 /* 隐藏部分 */
-#luo-regist .p-red{
+#luo-regist .p-red1,
+#luo-regist .p-red2,
+#luo-regist .p-red3{
     color:#FC3F78;
     font-size: .3rem;
     padding-top:.3rem;
     border-top:1px solid #FC3F78;
-    /* display: none; */
+    display: none;
 }
 
 </style>

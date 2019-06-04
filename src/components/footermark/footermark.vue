@@ -100,7 +100,6 @@ export default {
             text-align: left;
             margin: auto;
             overflow: hidden;
-            padding-top: .9rem;
         }
         .goodsList>li{
             /* display: flex; */
@@ -110,7 +109,7 @@ export default {
             border-bottom: 1px solid #F5F5F5;
         }
         p{
-            width: 1.3rem;
+            width: 1rem;
             /* height: 1rem; */
             float: left;
         }
@@ -177,7 +176,6 @@ export default {
         }
         .lose{
             background: #F5F5F5;
-            margin-bottom: .9rem;
         }
         .lose>.fail>h3{
             text-align: center;
@@ -185,7 +183,7 @@ export default {
             color: #888;
         }
         .lose>.fail>ul>li{
-            padding-top:.3rem;
+            padding-top:1rem;
             background: #fff;
         }
 </style>
