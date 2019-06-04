@@ -115,16 +115,20 @@ export default {
         this.actionsIGL()
         this.actionsSL()
         this.actionsJYSL()
-        //  this.$nextTick(()=>{
-        //         var mySwiper=new Swiper('.swiper-container',{
-        //             direction:'horizontal',
-        //             loop:true,
-        //             autoplay:true,
-        //             pagination:{
-        //                 el:'.swiper-pagination'
-        //             }
-        //         })
-        //     })
+    },
+    watch: {
+        swiperList(){
+            this.$nextTick(()=>{
+                 var mySwiper=new Swiper('.swiper-container',{
+                    direction:'horizontal',
+                    loop:true,
+                    autoplay:true,
+                    pagination:{
+                        el:'.swiper-pagination'
+                    }
+                })
+            })
+        }
     },
      computed: {
         ...Vuex.mapState({

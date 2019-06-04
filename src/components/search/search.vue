@@ -33,27 +33,14 @@
                 <a href="#">你好吗</a>
               </div>
            </div>
-           <ul class="searchList" style="display: none">
-              <li>
-                <div class="guanjianzi">
-                   <span>大白兔</span>
-                </div>
-                 <i class="iconfont iconzuoshangjiao"></i>
-              </li>
-              <li>
-                <div class="guanjianzi">
-                   <span>大白兔</span>
-                </div>
-                 <i class="iconfont iconzuoshangjiao"></i>
-              </li>
-            </ul>
+          
       </main>
     </div>
 </template>
 
 <script>
 export default {
-    name:"search",   
+    name:"search"
 }
 </script>
 
@@ -141,31 +128,5 @@ export default {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-.content>.searchList{
-    width: 100%;
-    height: 90%;
-    position: absolute;
-    top:95px;
-    background: #fff;
-}
-.content>.searchList>li{
-    border-bottom: solid 2px #eee;
-    padding: 0 .2rem;
-    height: 1rem;
-    width: 100%;
- 
-}
-.content>.searchList>li>.guanjianzi{
- width: 80%;
- float: left;
- padding: .3rem .1rem
-}
-.content>.searchList>li>.guanjianzi>span{
-    font-size: .3rem
-}
-.content>.searchList>li>i{
-    font-size: .4rem;
-    margin:.35rem .4rem;
-    display: inline-block;
-}
+
 </style>
