@@ -3,6 +3,7 @@ export default {
     name:'shopcar',
     component:()=>import('@views/shopcar/ShopCar'),
     meta: {
-        TabBarFlag: false
+        TabBarFlag: false,
+        keepAlive: false
     }
 }

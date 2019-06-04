@@ -11,6 +11,7 @@ import footermark from "./footermark";
 import feedback from "./feedback";
 import login from "./login";
 import regist from "./regist";
+import search from "./search";
 Vue.use(Router)
 
 export default new Router({
@@ -30,6 +31,7 @@ export default new Router({
         footermark,
         feedback,
         login,
-        regist
+        regist,
+        search
     ]
 })

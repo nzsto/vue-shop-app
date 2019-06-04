@@ -3,6 +3,7 @@ export default {
     path:'/collect',
     component: () => import("@views/collect/collect"),
     meta: {
-        TabBarFlag: true
+        TabBarFlag: true,
+        keepAlive: true
     }
 }

@@ -3,6 +3,7 @@ export default {
     name:'productlist',
     component:()=>import('@views/productlist/productList'),
     meta: {
-        TabBarFlag: true
+        TabBarFlag: true,
+        keepAlive: false
     }
 }

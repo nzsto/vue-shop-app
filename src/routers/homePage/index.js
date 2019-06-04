@@ -3,6 +3,7 @@ export default {
     name:'homePage',
     component:()=>import('@views/homepage/HomePage'),
     meta: {
-        TabBarFlag: true
+        TabBarFlag: true,
+        keepAlive: false
     }
 }

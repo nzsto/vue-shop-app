@@ -3,6 +3,7 @@ export default {
     name: 'login',
     component: () => import('@views/login/login'),
     meta: {
-        TabBarFlag: false
+        TabBarFlag: false,
+        keepAlive: true
     }
 }

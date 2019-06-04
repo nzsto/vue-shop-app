@@ -3,6 +3,7 @@ export default {
   path: '/mine',
   component: () =>import ("@views/mine/Mine"),
   meta: {
-      TabBarFlag: true
+      TabBarFlag: true,
+      keepAlive: true
   }
 }
