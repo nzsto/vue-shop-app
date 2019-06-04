@@ -2,9 +2,9 @@
     <main class="content">
         <div class="swiper-container">
             <div class="swiper-wrapper">
-            <a href="#" class="swiper-slide"><img src="/img/swiper.jpg"/></a>
-            <a href="#"class="swiper-slide"><img src="/img/swiper.jpg"/></a>
-            <a href="#"class="swiper-slide"><img src="/img/swiper.jpg"/></a>
+            <div class="swiper-slide"><img src="/img/swiper.jpg"/></div>
+            <div class="swiper-slide"><img src="/img/swiper.jpg"/></div>
+            <div class="swiper-slide"><img src="/img/swiper.jpg"/></div>
             </div>
             <div class="swiper-pagination"></div>
         </div>
@@ -140,13 +140,17 @@ export default {
     },
     methods: {
         initSwiper(){
-            var mySwiper=new Swiper('.swiper-container',{
+            this.$nextTick(()=>{
+                var mySwiper=new Swiper('.swiper-container',{
                 direction:'horizontal',
                 loop:true,
+                autoplay:true,
                 pagination:{
                     el:'.swiper-pagination'
                 }
             })
+            })
+            
         }
     },
 }
@@ -166,14 +170,15 @@ export default {
     overflow:hidden
 }
 .content .swiper-wrapper{
-    width:25rem
+     height: 3.4rem;
 }
-.content .swiper-wrapper,.content .swiper-wrapper a{
+.content .swiper-wrapper .swiper-slide{
     height: 3.4rem;
     background: #fff;
-    width:100%
+    width:100%;
+    float:left
 }
-.content .swiper-wrapper a img{
+.content .swiper-wrapper .swiper-slide img{
     width: 100%;
     height: 100%;
     display: inline-block
