@@ -1,6 +1,7 @@
 export default {
     mutationsGetGoods(state, params) {
         state.goodsList = params;
+        state.shopcarLoading=false;
     },
     handleToggle(state){
         state.allSelected = !state.allSelected;

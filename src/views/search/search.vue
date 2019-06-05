@@ -16,11 +16,13 @@
         </v-touch>
     </ul>
     <SearchGoods/>
+    <searchFooter/>
  </div>
 </template>
 
 <script>
 import SearchGoods from '@components/search/search'
+import searchFooter from '@components/search/searchFooter'
 import axios from "axios"
 export default {
     name:"Search",
@@ -36,7 +38,8 @@ export default {
         }
     },
     components:{
-       SearchGoods
+       SearchGoods,
+       searchFooter
     },
     methods: {
         changeWord(ele){

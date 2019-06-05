@@ -1,16 +1,16 @@
 <template>
     <div>
-        <Header :title='title' :iconfont='icon'/>
+        <FeedbackNav :title='title' :iconfont='icon'/>
         <Feedback />
     </div>
 </template>
 
 <script>
 import Feedback from "@components/feedback/feedback";
-import Header from "@common/header/Header";
+import FeedbackNav from "@components/feedback/feedbackNav";
 export default {
     components:{
-        Header,
+        FeedbackNav,
         Feedback
     },
     data(){

@@ -1,5 +1,6 @@
 <template>
     <div class="shopcar">
+        
         <Topnav :title='title' :iconfont='icon'/>
         <Top/>
         <Content/>
@@ -12,6 +13,7 @@ import Topnav from "@components/shopcar/topnav";
 import Content from "@components/shopcar/content";
 import Top from "@components/shopcar/top";
 import Footer from "@components/shopcar/footer";
+
 export default {
     data(){
         return{

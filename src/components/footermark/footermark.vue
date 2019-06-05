@@ -96,6 +96,7 @@ export default {
             font-family: Arial, Helvetica, sans-serif, "Microsoft YaHei";
         }
     .main{
+            padding-top:.9rem;
             max-width: 25rem;
             text-align: left;
             margin: auto;
@@ -109,7 +110,7 @@ export default {
             border-bottom: 1px solid #F5F5F5;
         }
         p{
-            width: 1rem;
+            width: 1.2rem;
             /* height: 1rem; */
             float: left;
         }

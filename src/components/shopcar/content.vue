@@ -1,5 +1,6 @@
 <template>
   <div class="content"> 
+    <Loading v-if="shopcarLoading"></Loading>
     <div class="goods" v-for="(item,index) in goodsList" :key="index">
       <label>
         <input type="checkbox" :checked="item.flag" @change="handleGoodsToggle(index)">
@@ -26,8 +27,12 @@
 <script>
 import Vuex from "vuex";
 import axios  from "axios";
+import Loading from "@common/loading/Loading";
 export default {
   name: "Content",
+  components:{
+    Loading
+  },
   created() {
     this.handleGetGoods();
   },
@@ -38,7 +43,8 @@ export default {
   },
   computed: {
     ...Vuex.mapState({
-      goodsList: state => state.cart.goodsList
+      goodsList: state => state.cart.goodsList,
+      shopcarLoading:state => state.cart.shopcarLoading
     }),
   },
   methods: {
