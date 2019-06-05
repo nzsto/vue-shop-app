@@ -8,22 +8,22 @@
             <div class="haoma">
                 <i class="iconfont">&#xe615;</i>
                 <p>
-                    <input type="text" placeholder="手机号码" required>
+                    <input type="text" placeholder="手机号码" name="haoma" required>
                     <i class="iconfont">&#xe669;</i>
                 </p>
             </div>
             <p class="xian .xian-red"></p>
-            <p class="p-red1">请输入正确11位的手机号码！</p>
+            <p class="p-red">请输入正确11位的手机号码！</p>
             <div class="mima">
                 <i class="iconfont">&#xe604;</i>
                 <p>
-                    <input type="password" placeholder="密码" required>
+                    <input type="password" placeholder="密码" name="mima" required>
                     <i class="iconfont">&#xe63b;</i>
                 </p>
             </div>
             <p class="xian"></p>
-            <p class="p-red3">密码为8-16位的数字或字母！</p>
-            <input type="submit" value="登录" class="sub">
+            <p class="p-red">密码为8-16位的数字或字母！</p>
+            <input type="submit" value="登录" class="sub" name="login">
         </form>
         <p class="denglu">没有账号？立即<router-link to="/regist" tag="a">注册</router-link></p>
         <p class="end"><span>验证码登录</span><span>找回密码</span></p>
@@ -34,52 +34,54 @@
 export default {
     
 }
-// function regAll(){
-//     if (checkHaoma()&& checkYan() && checkPassword()) {
-//         $(".p-red1").show()
-//         $(".p-red2").show()
-//         $(".p-red3").show()
-//         return
-//     } 
-// }
- //手机号码验证
- function checkHaoma() {
-    var reg1 = /^1\d{10}$/;  
-    var shouji = $("input[name=haoma]")
-    var haoma = shouji.value;
-    if (!reg1.test(haoma)) {
-        $(".p-red1").show()
-        return;
-    }else{
-        $(".p-red1").hide()
-    }
 
+var haoma = $("input[name=haoma]").val()
+var password = $("input[name=mima]").val()
+
+//本地存储
+function login(){
+    if(localStorage.user){
+        arr = eval(localStorage.user);//获取localStorage
+        var k = 0;
+        for(e in arr){
+            if(haoma==arr[e].loginName){
+                if(mima==arr[e].loginPsd){
+                    alert('登录成功');
+                    $(".p-red").hide()
+                    clear();
+                    k = 0;
+                    return;
+                }else{
+                    $(".p-red").show()
+                    alert('密码错误');
+                    clear();
+                    k = 0;
+                    return;
+                }
+            }else{
+                k = 1;
+            }
+        }
+        if(k==1){
+            alert('登录成功');
+            $(".p-red").show()
+            clear();
+        }
+    }else{
+        $(".p-red").show()
+        clear();
+    }
 }
-
-//密码验证
-function checkPassword() {
-    var reg3 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{8,16}$/;   //至少8-16个字符，至少1个大写字母，1个小写字母和1个数字，其他可以是任意字符
-    var pa = $("input[name=mima]")
-    var password = pa.value;
-    if (!reg3.test(password)) {
-        $(".p-red3").show()
-        return;
-    }else{
-        $(".p-red3").hide()
-    }
+function clear(){
+    $('input[name=haoma]').val('');
+    $("input[name=mima]").val('');
 }
 
 
 $(function () {
-    $('#luo-regist input[name=haoma]').on('click',function(){ 
-        checkHaoma()
+    $('#luo-regist input[name=login]').on('click',function(){
+        login()
     })
-    $('#luo-regist input[name=mima]').on('click',function(){
-        checkPassword()
-    })
-    // $('#luo-regist input[name=zhuce]').on('click',function(){
-    //     regAll()
-    // })
 
 })
 
@@ -184,14 +186,12 @@ $(function () {
     border-top:1px solid #ccc;
 }
 /* 隐藏部分 */
-#luo-regist .p-red1,
-#luo-regist .p-red2,
-#luo-regist .p-red3{
+#luo-regist .p-red{
     color:#FC3F78;
     font-size: .3rem;
     padding-top:.3rem;
     border-top:1px solid #FC3F78;
-    /* display: none; */
+    display: none;
 }
 
 /* 登录 */

@@ -3,6 +3,7 @@ export default {
     name: 'regist',
     component: () => import('@views/regist/regist'),
     meta: {
-        TabBarFlag: false
+        TabBarFlag: false,
+        keepAlive: true
     }
 }

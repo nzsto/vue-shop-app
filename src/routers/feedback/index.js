@@ -3,6 +3,7 @@ export default {
     path: '/feedback',
     component: () => import("@views/feedback/feedback"),
     meta:{
-        TabBarFlag:false
+        TabBarFlag:false,
+        keepAlive: true
     }
 }

@@ -3,6 +3,7 @@ export  default {
     name:"sort",
     component:()=>import("@views/sort/Sort"),
     meta: {
-        TabBarFlag: true
+        TabBarFlag: true,
+        keepAlive: false
     }
 }

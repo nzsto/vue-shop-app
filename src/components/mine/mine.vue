@@ -19,7 +19,7 @@
         </div>
         <div class="content">
             <ul>
-                <router-link class="crow-s" to="/collect" tag="li">
+                <router-link class="crow-s" to="/shopcar" tag="li">
                     <p>
                         <i>
                             <img src="https://cmsstatic.dataoke.com//wap_new/user/images/icon/wode_icon_like.svg">
