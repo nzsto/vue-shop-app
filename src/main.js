@@ -4,7 +4,8 @@ require('./mock/mockbase')
 import Observer from "./Observer"
 import router from "./routers";
 import store from "./store";
-import MintUI from 'mint-ui'
+import MINT from 'mint-ui';
+Vue.use(MINT)
 import axios from "axios";
 Vue.prototype.$http = axios;
 import 'swiper/dist/css/swiper.css';
@@ -18,6 +19,5 @@ new Vue({
   Observer,
   store,
   Loading,
-  MintUI,
   render: h => h(App),
 }).$mount('#app')

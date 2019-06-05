@@ -22,10 +22,13 @@ export default {
 
 
 
-    handleDel({dispatch}, id) {
+    handleGoodsDel({
+            dispatch
+        }, id) {
+        console.log(11)
         axios({
             method: "delete",
-            url: "http://localhost:3000/goods" + id
+            url: "http://localhost:3000/goods/" + id
         })
         dispatch("handleGetGoods");
         window.location.reload(true);
