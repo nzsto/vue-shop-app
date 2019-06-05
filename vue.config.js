@@ -5,6 +5,10 @@ module.exports = {
             "/shop":{
                 target:"https://apim.restful.5lux.com.cn",
                 changeOrigin:true
+            },
+            "/good":{
+                target:"https://apim.restful.5lux.com.cn",
+                changeOrigin:true
             }
         }
     },

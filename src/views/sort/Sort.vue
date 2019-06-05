@@ -1,11 +1,14 @@
 <template>
     <div>
         <Header :title='title' :iconfont='icon'/>
+        <Sort/>
     </div>
 </template>
 
 <script>
 import Header from "@common/header/Header";
+import Vuex from "vuex";
+import Sort from "@components/sort/Sort";
 export default {
     data(){
         return{
@@ -17,7 +20,8 @@ export default {
         }
     },
     components:{
-        Header
+        Header,
+        Sort
     }
 }
 </script>

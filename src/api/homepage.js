@@ -1,6 +1,6 @@
 import {http} from "@utils/http";
-// //接口的管理
- 
+//接口的管理
+
  //商品列表
  export const indexGoodsList = ()=>http("get","/shop/theirchose",{page:1})
 
