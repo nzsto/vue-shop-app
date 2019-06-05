@@ -49,13 +49,24 @@ export default {
     }),
   },
   methods: {
-    handleDel(id){     
+    handleDel(id){ 
+        let _this = this;    
       MessageBox({
         title: '提示',
         message: '确定执行此操作?',
         showCancelButton: true
-      }).then(action => {
-        this.handleGoodsDel(id)
+      }).then(function (action) {
+        // console.log(action)
+        if (action === 'confirm') { 
+          //  console.log(444)         
+          _this.handleGoodsDel(id)
+          // console.log(444)
+          //  console.log(this)
+        }
+      }).catch(err=>{
+        if (err == 'cancel') {
+          console.log('error')
+        }
       })
     },
     ...Vuex.mapMutations({

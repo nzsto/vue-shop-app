@@ -56,7 +56,7 @@
                  <div class="swiper_slide" v-for="(item,index) in JYswiperList.slice(0,3)" ::key="item.id">
                     <div class="swiper_cent">
                         <a href="#" class="img" data-addr="/index.php?r=p/d&amp;id=20027488&amp;source=mp">
-                          <img :src="item.product_thumb" alt="">
+                          <img :src="getImages(item.product_thumb)" alt="">
                         </a>
                         <p class="name">{{item.sku_title}}</p>
                         <p class="money">
