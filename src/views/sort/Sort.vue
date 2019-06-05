@@ -5,53 +5,22 @@
         <div class="z_menu_l">
             <a class="active" href="">女装</a>
             <a href="">男装</a>
-            <a href="">女装</a>
-            <a href="">男装</a>
-            <a href="">女装</a>
-            <a href="">男装</a>
-            <a href="">女装</a>
-            <a href="">男装</a>
-            <a href="">女装</a>
-            <a href="">男装</a>
-            <a href="">女装</a>
-            <a href="">男装</a>
-            <a href="">女装</a>
-            <a href="">男装</a>
-            <a href="">女装</a>
-            <a href="">男装</a>
-            <a href="">女装</a>
-            <a href="">男装</a>
-            <a href="">女装</a>
-            <a href="">男装</a>
-            <a href="">女装</a>
-            <a href="">男装</a>
-            <a href="">女装</a>
-            <a href="">男装</a>
-            <a href="">女装</a>
-            <a href="">男装</a>
-            <a href="">女装</a>
-            <a href="">男装</a>
         </div>
         <div class="z_menu_r">
             <ul>
-                <li><a href=""><img src="../../../public/images/xxx.webp"><span>T恤/短袖</span></a></li>
-                <li><a href=""><img src="../../../public/images/xxx.webp"><span>T恤/短袖</span></a></li>
-                <li><a href=""><img src="../../../public/images/xxx.webp"><span>T恤/短袖</span></a></li>
-                <li><a href=""><img src="../../../public/images/xxx.webp"><span>T恤/短袖</span></a></li>
-                <li><a href=""><img src="../../../public/images/xxx.webp"><span>T恤/短袖</span></a></li>
-                <li><a href=""><img src="../../../public/images/xxx.webp"><span>T恤/短袖</span></a></li>
-                <li><a href=""><img src="../../../public/images/xxx.webp"><span>T恤/短袖</span></a></li>
-                <li><a href=""><img src="../../../public/images/xxx.webp"><span>T恤/短袖</span></a></li>
-                <li><a href=""><img src="../../../public/images/xxx.webp"><span>T恤/短袖</span></a></li>
                 <li><a href=""><img src="../../../public/images/xxx.webp"><span>T恤/短袖</span></a></li>
             </ul>
         </div>
     </div>
 </div>
-
+</template>
 <script>
 import Header from "@common/header/Header";
+import Vuex from 'vuex'
+import axios from "axios";
+import Header from "@common/header/Header";
 export default {
+    name: "Sort",
     data(){
         return{
             title:'我的分类',
@@ -63,15 +32,18 @@ export default {
     },
     components:{
         Header
+    }，
+    created() {
+        axios.get("/api/good/top_catlist",{id:id}).then(function(res) {
+            console.log(res)
+        })
     }
 }
 </script>
-
-</template>
 <style scoped>
 .z_menu{
-    overflow: hidden;
-    margin-top: .953rem;
+    overflow:hidden;
+    margin-top:.9rem;
     position: absolute;
     width:100%;
     display:flex;
@@ -121,3 +93,4 @@ export default {
     color:#333;
     font-size: .266667rem
 }
+</style>
