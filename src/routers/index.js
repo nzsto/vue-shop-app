@@ -12,9 +12,7 @@ import feedback from "./feedback";
 import search  from "./search";
 import login from "./login";
 import regist from "./regist";
-import search from "./search";
 Vue.use(Router)
-
 export default new Router({
     mode: 'hash',
     routes: [
@@ -31,7 +29,6 @@ export default new Router({
         collect,
         footermark,
         feedback,
-        search,
         login,
         regist,
         search
