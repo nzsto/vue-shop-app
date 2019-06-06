@@ -20,43 +20,34 @@ export default {
 </script>
 
 <style scoped>
-        * {
-                padding: 0;
-                margin: 0;
-        }
-
-        body {
-            font-size: 12px;
-            font-family: Arial, Helvetica, sans-serif, "Microsoft YaHei";
-        }
-    .content>p{
-            background: url(https://cmsstatic.dataoke.com//wap_new/user/images/user_sc.svg?v=2019-05-30) center bottom
-            no-repeat;
-            width: 100%;
-            height: 35vh;
-            margin-bottom: .66rem;
-            }
-        .content>.text{
-            font-size: .2rem;
-            padding-bottom: .3rem;
-            text-align: center;
-        }
-        .content>.text>p{
-            color: #999;
-            padding: .3rem;
-        }
-        .but{
-            text-align: center;
-        }
-        .but>a{
-            padding: .2rem .8rem;
-            box-shadow: 0 2px 6px 0 rgba(255,135,135,.5);
-            background: linear-gradient(to left,#FF5E90 0,#FF927C 100%);
-            border-radius: .9rem;
-            color: #fff;
-            font-size: 14px;
-            text-decoration: none;
-        }
+.content>p{
+    background: url(https://cmsstatic.dataoke.com//wap_new/user/images/user_sc.svg?v=2019-05-30) center bottom
+    no-repeat;
+    width: 100%;
+    height: 35vh;
+    margin-bottom: .66rem;
+    }
+.content>.text{
+    font-size: .2rem;
+    padding-bottom: .3rem;
+    text-align: center;
+}
+.content>.text>p{
+    color: #999;
+    padding: .3rem;
+}
+.but{
+    text-align: center;
+}
+.but>a{
+    padding: .2rem .8rem;
+    box-shadow: 0 2px 6px 0 rgba(255,135,135,.5);
+    background: linear-gradient(to left,#FF5E90 0,#FF927C 100%);
+    border-radius: .9rem;
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+}
 </style>
 
 
