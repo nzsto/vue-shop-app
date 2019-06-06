@@ -9,9 +9,9 @@
                         </a>
                     <div class="info">
                         <p>
-                            <a href="#">登录</a>
+                            <router-link tag="a" to="/login">登录</router-link>
                             <i>/</i>
-                            <a href="#">注册</a>
+                            <router-link tag="a" to="/regist">注册</router-link>
                         </p>
                     </div>
                 </div>
@@ -19,7 +19,7 @@
         </div>
         <div class="content">
             <ul>
-                <router-link class="crow-s" to="/collect" tag="li">
+                <router-link class="crow-s" to="/shopcar" tag="li">
                     <p>
                         <i>
                             <img src="https://cmsstatic.dataoke.com//wap_new/user/images/icon/wode_icon_like.svg">

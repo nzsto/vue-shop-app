@@ -1,22 +1,26 @@
 const path = require("path");
 module.exports = {
-    devServer:{
-        proxy:{
-            "/api":{
-                target:"https://apim.restful.5lux.com.cn",
-                changeOrigin:true
+    devServer: {
+        proxy: {
+            "/shop": {
+                target: "https://apim.restful.5lux.com.cn",
+                changeOrigin: true
+            },
+            "/good": {
+                target: "https://apim.restful.5lux.com.cn",
+                changeOrigin: true
             }
         }
     },
-    configureWebpack:{  //覆盖webpack的配置项
-        resolve:{ //配置别名
-            alias:{
-                "@":path.resolve(__dirname,"./src"),
-                "@common" : path.resolve(__dirname,"./src/common"),
-                "@api" : path.resolve(__dirname,"./src/api"),
-                "@components" : path.resolve(__dirname,"./src/components"),
-                "@utils" : path.resolve(__dirname,"./src/utils"),
-                "@views":path.resolve(__dirname,"./src/views")
+    configureWebpack: { //覆盖webpack的配置项
+        resolve: { //配置别名
+            alias: {
+                "@": path.resolve(__dirname, "./src"),
+                "@common": path.resolve(__dirname, "./src/common"),
+                "@api": path.resolve(__dirname, "./src/api"),
+                "@components": path.resolve(__dirname, "./src/components"),
+                "@utils": path.resolve(__dirname, "./src/utils"),
+                "@views": path.resolve(__dirname, "./src/views")
             }
         }
     }

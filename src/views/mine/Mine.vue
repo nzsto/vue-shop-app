@@ -12,6 +12,7 @@ export default {
 </script>
 
 <style scoped>
+<<<<<<< HEAD
 .header{
         width: 100%;
         height: 44vw;
@@ -74,4 +75,7 @@ export default {
         background: #F5F5F5;
         height: .4rem;
     }
+=======
+    
+>>>>>>> f61507ef328819173029903164cf437444a6c38b
 </style>

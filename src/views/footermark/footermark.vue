@@ -1,16 +1,16 @@
 <template>
     <div>
-        <Header :title='title' :iconfont='icon'/>
+        <Footernav :title='title' :iconfont='icon'/>
         <Footermark />
     </div>
 </template>
 
 <script>
 import Footermark from "@components/footermark/footermark";
-import Header from "@common/header/Header";
+import Footernav from "@components/footermark/footernav";
 export default {
     components:{
-        Header,
+        Footernav,
         Footermark
     },
     data(){

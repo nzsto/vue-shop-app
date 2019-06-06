@@ -7,15 +7,15 @@
                 收藏云端同步，不错过任何优惠哦
             </p>
         </div>
-        <div class="but">
+        <router-link class="but" tag="div" to="/login">
             <a href="#">登录/注册</a>
-        </div>
+        </router-link>
     </div>
 </template>
 
 <script>
 export default {
-
+    
 }
 </script>
 
