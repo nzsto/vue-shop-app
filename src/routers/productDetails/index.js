@@ -3,7 +3,7 @@ export default {
     name:'productdetails',
     component:()=>import('@views/productdetails/productDetails'),
     meta: {
-        TabBarFlag: true,
+        TabBarFlag: false,
         keepAlive: false
     }
 }

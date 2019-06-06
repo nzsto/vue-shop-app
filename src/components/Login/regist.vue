@@ -8,7 +8,7 @@
             <div class="haoma">
                 <i class="iconfont">&#xe615;</i>
                 <p>
-                    <input type="text" placeholder="手机号码" name="haoma" maxlength="11" required>
+                    <input type="text" placeholder="手机号码" v-model="haoma" name="haoma" maxlength="11" required>
                     <i class="iconfont">&#xe669;</i>
                 </p>
             </div>
@@ -17,7 +17,7 @@
             <div class="yanzheng">
                 <i class="iconfont">&#xe657;</i>
                 <div>
-                    <input type="text" placeholder="请输入验证码" name="yanzhengma" required>
+                    <input type="text" placeholder="请输入验证码" v-model="yanzhengma" name="yanzhengma" required>
                     <p><a href="#">获取验证码</a></p>
                 </div>
             </div>
@@ -26,13 +26,13 @@
             <div class="mima">
                 <i class="iconfont">&#xe604;</i>
                 <p>
-                    <input type="password" placeholder="密码" name="mima" required>
+                    <input type="password" placeholder="密码" v-model="mima" name="mima" required>
                     <i class="iconfont">&#xe63b;</i>
                 </p>
             </div>
             <p class="xian"></p>
             <p class="p-red3">密码为8-16位的数字或字母！</p>
-            <input type="submit" value="注册" class="sub" name="regist">
+            <input type="submit" value="注册" class="sub" name="regist" @click="login">
         </form>
         <p class="agree">点击“注册”表示您已同意 <a href="#">《领券吧用户协议》</a></p>
         <p class="cent">已有账号？点击<router-link to="/login" tag="a">登录</router-link></p>
@@ -40,91 +40,103 @@
 </template>
 <script>
 export default {
-    
-}
- var reg1 = /^1\d{10}$/;  
-var reg2 = /^\d{4}$/;  
-var reg3 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{8,16}$/;   //至少8-16个字符，至少1个大写字母，1个小写字母和1个数字，其他可以是任意字符
-var haoma = $("input[name=haoma]").val()
-var yanzheng = $("input[name=yanzhengma]").val()
-var password = $("input[name=mima]").val()
-    
-
- //手机号码验证
-function checkHaoma() {
-    if (!reg1.test(haoma)) {
-        $(".p-red1").show()
-        return false
-    }else{
-        $(".p-red1").hide()
-        return true
-    }
-
-}
- //验证码
-function checkYan() {
-    if (!reg2.test(yanzheng)) {
-        $(".p-red2").show()
-        return false
-    }else{
-        $(".p-red2").hide()
-        return true
-    }
-
-}
-//密码验证
-function checkPassword() {
-    if (!reg3.test(password)) {
-        $(".p-red3").show()
-        return false
-    }else{
-        $(".p-red3").hide()
-        return true
-    }
-}
-
-//本地存储
-function ZhuCe(){
-    var arr = [];
-    if(localStorage.user){
-    arr = eval(localStorage.user);
-        for(e in arr){
-            if(haoma==arr[e].loginName){
-                alert('该账号已被注册');
-                clear();
-                return;
-            }
+    name:"regist",
+    data(){
+        return{
+            haoma:"",
+            yanzhengma:"",
+            mima:""
         }
+    },
+    methods: {
+          login(){
+
+          }
     }
-    var user = {'loginName':haoma,'loginPsd':password};
-    arr.push(user);
-    localStorage.user=JSON.stringify(arr);
-    alert('注册成功');
-    clear();
 }
-function clear(){
-    $('input[name=haoma]').val('');
-    $('input[name=yanzhengma]').val('');
-    $("input[name=mima]").val('');
-}
+// var reg1 = /^1\d{10}$/;  
+// var reg2 = /^\d{4}$/;  
+// var reg3 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{8,16}$/;   //至少8-16个字符，至少1个大写字母，1个小写字母和1个数字，其他可以是任意字符
+// var haoma = $("input[name=haoma]").val()
+// var yanzheng = $("input[name=yanzhengma]").val()
+// var password = $("input[name=mima]").val()
+    
+
+//  //手机号码验证
+// function checkHaoma() {
+//     if (!reg1.test(haoma)) {
+//         $(".p-red1").show()
+//         return false
+//     }else{
+//         $(".p-red1").hide()
+//         return true
+//     }
+
+// }
+//  //验证码
+// function checkYan() {
+//     if (!reg2.test(yanzheng)) {
+//         $(".p-red2").show()
+//         return false
+//     }else{
+//         $(".p-red2").hide()
+//         return true
+//     }
+
+// }
+// //密码验证
+// function checkPassword() {
+//     if (!reg3.test(password)) {
+//         $(".p-red3").show()
+//         return false
+//     }else{
+//         $(".p-red3").hide()
+//         return true
+//     }
+// }
+
+// //本地存储
+// function ZhuCe(){
+//     var arr = [];
+//     if(localStorage.user){
+//     arr = eval(localStorage.user);
+//         for(e in arr){
+//             if(haoma==arr[e].loginName){
+//                 alert('该账号已被注册');
+//                 clear();
+//                 return;
+//             }
+//         }
+//     }
+//     var user = {'loginName':haoma,'loginPsd':password};
+//     arr.push(user);
+//     localStorage.user=JSON.stringify(arr);
+//     alert('注册成功');
+//     clear();
+// }
+// function clear(){
+//     $('input[name=haoma]').val('');
+//     $('input[name=yanzhengma]').val('');
+//     $("input[name=mima]").val('');
+// }
 
 
-$(function () {
-    $('#luo-regist input[name=haoma]').on('click',function(){ 
-        checkHaoma()
-    })
-    $('#luo-regist input[name=mima]').on('click',function(){
-        checkPassword()
-    })
-    $('#luo-regist input[name=yanzhengma]').on('click',function(){
-        checkYan()
-    })
-    $('#luo-regist input[name=regist]').on('click',function(){
-        ZhuCe()
-    })
+// $(function () {
+//     $('#luo-regist input[name=haoma]').on('click',function(){ 
+//         checkHaoma()
+//     })
+//     $('#luo-regist input[name=mima]').on('click',function(){
+//         checkPassword()
+//     })
+//     $('#luo-regist input[name=yanzhengma]').on('click',function(){
+//         checkYan()
+//     })
+//     $('#luo-regist input[name=regist]').on('click',function(){
+//         ZhuCe()
+//     })
 
 
-})
+// })
 </script>
 <style scoped>
     #luo-regist h2{

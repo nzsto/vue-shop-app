@@ -5,6 +5,10 @@ module.exports = {
             "/shop":{
                 target:"https://apim.restful.5lux.com.cn",
                 changeOrigin:true
+            },
+            "/good":{
+                target:"https://apim.restful.5lux.com.cn",
+                changeOrigin:true
             }
         }
     },
@@ -21,3 +25,5 @@ module.exports = {
         }
     }
 }
+
+// https://apim.restful.5lux.com.cn/good/goodsdetail/?id=6453721&from=&mtoken=

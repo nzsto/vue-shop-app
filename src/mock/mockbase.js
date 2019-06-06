@@ -9,6 +9,6 @@ Mock.mock(/\/search/,"get",function(options){
             }
         ]
     })
-    
     return data 
+    
 })
