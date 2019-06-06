@@ -1,5 +1,6 @@
 <template>
  <div>
+     <!-- zhusi -->
     <header class="icon_header">
             <router-link v-html='icon.fh' class="iconfont" tag="a" to="/homePage"></router-link>
             <input type="text" class="searchBox" placeholder="输入您需要的商品名称" 
