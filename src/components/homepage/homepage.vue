@@ -56,13 +56,8 @@
                  <v-touch class="swiper_slide" v-for="(item,index) in JYswiperList.slice(0,3)" :key="item.id"
                  v-on:tap="jyID(item.id)">
                     <div class="swiper_cent">
-<<<<<<< HEAD
-                        <a href="#" class="img" data-addr="/index.php?r=p/d&amp;id=20027488&amp;source=mp">
-                          <img :src="getImages(item.product_thumb)" alt="">
-=======
                         <a href="#" class="img">
                           <img :src="item.product_thumb" alt="">
->>>>>>> maomao
                         </a>
                         <p class="name">{{item.sku_title}}</p>
                         <p class="money">
@@ -70,11 +65,7 @@
                           <del>¥339</del>
                         </p>
                     </div>
-<<<<<<< HEAD
-                 </div>
-=======
                  </v-touch>               
->>>>>>> maomao
                 </ul>
                </div>
             </div>
