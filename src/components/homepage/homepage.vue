@@ -44,27 +44,37 @@
         <div class="brand">
           <div class="brand_child">
             <img src="/img/nine.jpg" alt="">
-            <a class="jiuyang" href="#"><img src="/img/xiaonine.jpg" alt=""></a> 
+            <a class="jiuyang" href="#"><img src="/img/xiaonine.jpg" alt=""></a>
             <div class="nr">
               <h3 class="bt" style="color: rgb(51, 51, 51)
-              ">因关爱而存在-九阳</h3> 
+              ">因关爱而存在-九阳</h3>
               <p class="text" style="color: rgb(51, 51, 51)
               ">更懂中国厨房</p>
             </div>
             <div class="swiper_show">
                 <ul>
-                 <div class="swiper_slide" v-for="(item,index) in JYswiperList.slice(0,3)" ::key="item.id">
+                 <v-touch class="swiper_slide" v-for="(item,index) in JYswiperList.slice(0,3)" :key="item.id"
+                 v-on:tap="jyID(item.id)">
                     <div class="swiper_cent">
+<<<<<<< HEAD
                         <a href="#" class="img" data-addr="/index.php?r=p/d&amp;id=20027488&amp;source=mp">
                           <img :src="getImages(item.product_thumb)" alt="">
+=======
+                        <a href="#" class="img">
+                          <img :src="item.product_thumb" alt="">
+>>>>>>> maomao
                         </a>
                         <p class="name">{{item.sku_title}}</p>
                         <p class="money">
-                          <i>¥</i>{{item.product_price}} 
+                          <i>¥</i>{{item.product_price}}
                           <del>¥339</del>
                         </p>
                     </div>
-                 </div>               
+<<<<<<< HEAD
+                 </div>
+=======
+                 </v-touch>               
+>>>>>>> maomao
                 </ul>
                </div>
             </div>
@@ -74,15 +84,15 @@
                 领券直播
               </div>
               <div class="text-right" >
-                今日已为用户省钱 
+                今日已为用户省钱
                 <span ui-home-number="" data-num="" data-time="2" isload="true">
                   206,075,530
-                </span> 
+                </span>
                 元
               </div>
           </h3>
         <ul class="goodsList">
-          <li  v-for="(item,index) in goodsList" :key="item.product_id">
+          <v-touch tag="li" v-for="(item,index) in goodsList" :key="item.product_id" v-on:tap="glID(item.product_id)">
             <a href="#">
               <p>
                 <img :src="getImages(item.thumb)" alt="">
@@ -93,7 +103,7 @@
                 <div class="col-aaa" style="opacity: 1;">
                   <span>天猫价 ¥{{item.product_price}}</span><span class="fr">已售{{item.product_price}}件</span>
                 </div>
-                <div class="money">    
+                <div class="money">
                   <span class="">
                     <i>¥</i>
                     {{item.super_number}}
@@ -101,14 +111,14 @@
                   <i class="iconfont icongouwuchekong"></i>
                 </div>
               </div>
-          </li>
+          </v-touch>
         </ul>
       </main>
 </template>
 
 <script>
 import Swiper from 'swiper';
- import Vuex from "vuex";
+import Vuex from "vuex";
 export default {
     name:"homepage",
     created() {
@@ -136,7 +146,7 @@ export default {
             swiperList:state=>state.homepage.indexSwiperLists,
             JYswiperList:state=>state.homepage.indexJYSwiperLists
         }),
-       
+
     },
     methods: {
         getImages( _url ){
@@ -150,16 +160,22 @@ export default {
             actionsIGL:"homepage/actionsIGL",
             actionsSL:"homepage/actionsSL",
             actionsJYSL:"homepage/actionsJYSL"
-        })
+        }),
+        //商品列表id传递
+        glID(id){
+            this.$router.push({name:"productdetails",params:{goods_id:id}})
+        },
+        jyID(id){
+            this.$router.push({name:"productdetails",params:{goods_id:id}})
+        }
     },
 }
 </script>
 
 <style scoped>
 /* main */
-
 .content{
-    padding-top:.9rem;
+    margin-top:.9rem;
     background-color: rgb(230, 230, 230);
     max-width:25rem
 
@@ -410,7 +426,7 @@ export default {
 .goodsList>li>.cent>.money>span {
     font-size: 18px;
     margin-right:.15rem;
- 
+
 }
 .goodsList>li>.cent>.money>span>i{
     font-size: 14px;

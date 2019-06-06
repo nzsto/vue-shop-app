@@ -1,12 +1,12 @@
 import axios from "axios";
 export default {
-    handleGetGoods({commit}) {    
+    handleGetGoods({commit}) {
         axios({
             method: "get",
             url: "http://localhost:3000/goods"
         }).
         then((res) => {
-           
+
             res.data.map((item) => {
                 console.log(item)
                 item.flag = true;
