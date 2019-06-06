@@ -25,65 +25,75 @@
             <p class="p-red">密码为8-16位的数字或字母！</p>
             <input type="submit" value="登录" class="sub" name="login">
         </form>
-        <p class="denglu">没有账号？立即<router-link to="/regist" tag="a">注册</router-link></p>
+        <p class="denglu">没有账号？立即<router-link to="/regist" tag="a" @click="regist">注册</router-link></p>
         <p class="end"><span>验证码登录</span><span>找回密码</span></p>
     </div>
 </template>
 <script>
 
 export default {
-    
-}
-
-var haoma = $("input[name=haoma]").val()
-var password = $("input[name=mima]").val()
-
-//本地存储
-function login(){
-    if(localStorage.user){
-        arr = eval(localStorage.user);//获取localStorage
-        var k = 0;
-        for(e in arr){
-            if(haoma==arr[e].loginName){
-                if(mima==arr[e].loginPsd){
-                    alert('登录成功');
-                    $(".p-red").hide()
-                    clear();
-                    k = 0;
-                    return;
-                }else{
-                    $(".p-red").show()
-                    alert('密码错误');
-                    clear();
-                    k = 0;
-                    return;
-                }
-            }else{
-                k = 1;
-            }
+    name:"login",
+    data(){
+        return{
+            regist:""
         }
-        if(k==1){
-            alert('登录成功');
-            $(".p-red").show()
-            clear();
+    },
+    methods:{
+        regist(){
+            
         }
-    }else{
-        $(".p-red").show()
-        clear();
     }
 }
-function clear(){
-    $('input[name=haoma]').val('');
-    $("input[name=mima]").val('');
-}
+
+// var haoma = $("input[name=haoma]").val()
+// var password = $("input[name=mima]").val()
+
+// //本地存储
+// function login(){
+//     if(localStorage.user){
+//         arr = eval(localStorage.user);//获取localStorage
+//         var k = 0;
+//         for(e in arr){
+//             if(haoma==arr[e].loginName){
+//                 if(mima==arr[e].loginPsd){
+//                     alert('登录成功');
+//                     $(".p-red").hide()
+//                     clear();
+//                     k = 0;
+//                     return;
+//                 }else{
+//                     $(".p-red").show()
+//                     alert('密码错误');
+//                     clear();
+//                     k = 0;
+//                     return;
+//                 }
+//             }else{
+//                 k = 1;
+//             }
+//         }
+//         if(k==1){
+//             alert('登录成功');
+//             $(".p-red").show()
+//             clear();
+//         }
+//     }else{
+//         $(".p-red").show()
+//         clear();
+//     }
+// }
+// function clear(){
+//     $('input[name=haoma]').val('');
+//     $("input[name=mima]").val('');
+// }
 
 
-$(function () {
-    $('#luo-regist input[name=login]').on('click',function(){
-        login()
-    })
+// $(function () {
+//     $('#luo-regist input[name=login]').on('click',function(){
+//         login()
+//     })
 
-})
+// })
 
 </script>
 <style scoped>
