@@ -1,9 +1,9 @@
 export default {
-  name: 'mine',
-  path: '/mine',
-  component: () =>import ("@views/mine/Mine"),
-  meta: {
-      TabBarFlag: true,
-      keepAlive: true
-  }
+    name: 'mine',
+    path: '/mine',
+    component: () => import("@views/mine/Mine"),
+    meta: {
+        TabBarFlag: true,
+        keepAlive: true
+    }
 }

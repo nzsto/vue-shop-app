@@ -6,11 +6,14 @@ const server = axios.create({
 })
 
 server.interceptors.request.use((config)=>{
+<<<<<<< HEAD
     // if(config.method == "post"){
     //     config.data = config.data;
     // }else if(config.method == "get"){
     //     config.params = {...config.params};
     // }
+=======
+>>>>>>> dev
     return config;
 },(e)=>{
     return Promise.reject(e);
@@ -26,7 +29,10 @@ server.interceptors.response.use((res)=>{
 })
 
 export const http = (method,url,data={})=>{
+<<<<<<< HEAD
 
+=======
+>>>>>>> dev
     if(method == "get"){
        return server.get(url,{
            params:data
@@ -37,4 +43,7 @@ export const http = (method,url,data={})=>{
         return;
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> dev
