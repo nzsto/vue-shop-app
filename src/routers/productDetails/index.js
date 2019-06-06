@@ -1,7 +1,7 @@
 export default {
-    path: '/productdetails',
-    name: 'productdetails',
-    component: () => import('@views/productdetails/productDetails'),
+    path: '/productdetails/:goods_id',
+    name:'productdetails',
+    component:()=>import('@views/productdetails/productDetails'),
     meta: {
         TabBarFlag: false,
         keepAlive: false

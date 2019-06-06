@@ -1,14 +1,14 @@
 const path = require("path");
 module.exports = {
-    devServer: {
-        proxy: {
-            "/shop": {
-                target: "https://apim.restful.5lux.com.cn",
-                changeOrigin: true
+    devServer:{
+        proxy:{
+            "/shop":{
+                target:"https://apim.restful.5lux.com.cn",
+                changeOrigin:true
             },
-            "/good": {
-                target: "https://apim.restful.5lux.com.cn",
-                changeOrigin: true
+            "/good":{
+                target:"https://apim.restful.5lux.com.cn",
+                changeOrigin:true
             }
         }
     },
