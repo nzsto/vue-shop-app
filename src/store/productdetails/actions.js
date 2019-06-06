@@ -1,4 +1,4 @@
-import {productdetails} from "@api/homepage";
+import {productdetails} from "@api/productDetails";
 
 export  default {
     //首页商品列表
@@ -9,3 +9,5 @@ export  default {
         commit("mutationsDetails",data.data)
     }
 }
+
+

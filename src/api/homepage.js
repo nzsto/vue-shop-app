@@ -10,5 +10,3 @@ import {http} from "@utils/http";
  //首页九阳页面可滑动
  export const JYswiperList = ()=>http("get","/shop/home_all_info")
 
- //详情页
- export const productdetails=()=>http("get","/good/goodsdetail",{id:"6453721",from:"",token:""})

@@ -1,5 +1,6 @@
 <template>
-     <div id="luo-details">
+     <div>
+         <div id="luo-details">
         <!-- 头部 -->
         <div class="header">     <!-- isshow1 white -->
             <a href="javascript:;" class="iconfont" @click="headBack"><i>&#xe668;</i></a>
@@ -162,7 +163,7 @@
             <h3>今日热销</h3>
             <ul> 
                 <li>
-                    <a href="#"> <img src="../../../public/images/tuijian.jpg" alt=""></a>
+                    <a href="#"><img src="../../../public/images/tuijian.jpg" alt=""></a>
                     <p class="recom"><i class="iconfont">&#xe799;</i><a href="#" class="texthide">巨划算【好吉利】本色卷纸14卷</a></p>
                     <p class="recom1">
                         <span>天猫价￥<em>19.9</em></span>
@@ -221,28 +222,26 @@
         </div>
         
         <!-- 购买 -->
-        <div class="footer">
-            <div class="buy">
-           <a href="#">
+        <div class="buy">
+            <a href="#">
                 <i class="iconfont">&#xe656;</i><br/>
                 <span>转发</span>
             </a>
-          
-           <a href="#">
-               <i class="iconfont">&#xe637;</i><br>
-               <span>收藏</span>
+            <a href="#">
+                <i class="iconfont">&#xe637;</i><br>
+                <span>收藏</span>
             </a>
-           <a href="#">
-               <span>￥<em>19.5</em></span><br>
-               <span class="pany">不领券</span>
+            <a href="#">
+                <span>￥<em>19.5</em></span><br>
+                <span class="pany">不领券</span>
             </a>
             <a href="#">
                 <span>￥<em>13.5</em></span><br>
                 <span>领券购买</span>
             </a>
         </div>
-        </div>
     </div>
+     </div>
 </template>
 <script>
 import Vuex from "vuex"
@@ -713,27 +712,29 @@ export default {
 
 }
 /* 购买 尾部*/
-
 #luo-details .buy{
     width:100%;
     height:1.3rem;
+    border-top:1px solid #eee;
     background:#fff;
     position:fixed;
+    left:0;
     bottom:0;
     z-index: 6;
     display: flex;
-    justify-content: space-around;
+    overflow-x: hidden;
+    /* justify-content: space-between; */
     align-items: center;
     padding:0 .15rem;
 }
 #luo-details .buy a{
     font-size:.3rem;
+    padding-left: 0.6rem;
 }
 #luo-details .buy a:nth-child(3){
-    /* color:#fc4d52; */
     color:#FE9E6B;
     font-size:.35rem;
-
+    padding-right: 0.5rem;
 }
 #luo-details .buy .pany{
     padding-left:.1rem;

@@ -26,4 +26,3 @@ module.exports = {
     }
 }
 
-// https://apim.restful.5lux.com.cn/good/goodsdetail/?id=6453721&from=&mtoken=
