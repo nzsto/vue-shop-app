@@ -157,9 +157,8 @@ export default {
 
 <style scoped>
 /* main */
-
 .content{
-    padding-top:.9rem;
+    margin-top:.9rem;
     background-color: rgb(230, 230, 230);
     max-width:25rem
 
