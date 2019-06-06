@@ -11,13 +11,15 @@ Vue.prototype.$http = axios;
 import 'swiper/dist/css/swiper.css';
 Vue.config.productionTip = false
 import VueTouch from 'vue-touch'
-Vue.use(VueTouch, {name: 'v-touch'})
-import Loading from "@common/loading/Loading";
+Vue.use(VueTouch, {
+    name: 'v-touch'
+})
+import Loading from "@common/loading/Loading"
 new Vue({
-  store,
-  router,
-  Observer,
-  store,
-  Loading,
-  render: h => h(App),
+    store,
+    router,
+    Observer,
+    store,
+    Loading,
+    render: h => h(App),
 }).$mount('#app')

@@ -1,5 +1,9 @@
-import {http} from '@utils/http'
-//接口管理
+import {
+    http
+} from "@utils/http";
+//接口的管理
 
-//分类列表
-export const sortList = ()=>http("get","/api/good/top_catlist",{id:id})
+//商品一级分类
+export const sortGoodsList = () => http("get", "/good/top_catlist", {
+    id: ""
+})

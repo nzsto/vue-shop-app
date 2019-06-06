@@ -44,10 +44,10 @@
         <div class="brand">
           <div class="brand_child">
             <img src="/img/nine.jpg" alt="">
-            <a class="jiuyang" href="#"><img src="/img/xiaonine.jpg" alt=""></a> 
+            <a class="jiuyang" href="#"><img src="/img/xiaonine.jpg" alt=""></a>
             <div class="nr">
               <h3 class="bt" style="color: rgb(51, 51, 51)
-              ">因关爱而存在-九阳</h3> 
+              ">因关爱而存在-九阳</h3>
               <p class="text" style="color: rgb(51, 51, 51)
               ">更懂中国厨房</p>
             </div>
@@ -60,11 +60,11 @@
                         </a>
                         <p class="name">{{item.sku_title}}</p>
                         <p class="money">
-                          <i>¥</i>{{item.product_price}} 
+                          <i>¥</i>{{item.product_price}}
                           <del>¥339</del>
                         </p>
                     </div>
-                 </div>               
+                 </div>
                 </ul>
                </div>
             </div>
@@ -74,10 +74,10 @@
                 领券直播
               </div>
               <div class="text-right" >
-                今日已为用户省钱 
+                今日已为用户省钱
                 <span ui-home-number="" data-num="" data-time="2" isload="true">
                   206,075,530
-                </span> 
+                </span>
                 元
               </div>
           </h3>
@@ -93,7 +93,7 @@
                 <div class="col-aaa" style="opacity: 1;">
                   <span>天猫价 ¥{{item.product_price}}</span><span class="fr">已售{{item.product_price}}件</span>
                 </div>
-                <div class="money">    
+                <div class="money">
                   <span class="">
                     <i>¥</i>
                     {{item.super_number}}
@@ -108,7 +108,7 @@
 
 <script>
 import Swiper from 'swiper';
- import Vuex from "vuex";
+import Vuex from "vuex";
 export default {
     name:"homepage",
     created() {
@@ -136,7 +136,7 @@ export default {
             swiperList:state=>state.homepage.indexSwiperLists,
             JYswiperList:state=>state.homepage.indexJYSwiperLists
         }),
-       
+
     },
     methods: {
         getImages( _url ){
@@ -410,7 +410,7 @@ export default {
 .goodsList>li>.cent>.money>span {
     font-size: 18px;
     margin-right:.15rem;
- 
+
 }
 .goodsList>li>.cent>.money>span>i{
     font-size: 14px;
