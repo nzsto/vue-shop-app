@@ -53,9 +53,10 @@
             </div>
             <div class="swiper_show">
                 <ul>
-                 <div class="swiper_slide" v-for="(item,index) in JYswiperList.slice(0,3)" ::key="item.id">
+                 <v-touch class="swiper_slide" v-for="(item,index) in JYswiperList.slice(0,3)" :key="item.id"
+                 v-on:tap="jyID(item.id)">
                     <div class="swiper_cent">
-                        <a href="#" class="img" data-addr="/index.php?r=p/d&amp;id=20027488&amp;source=mp">
+                        <a href="#" class="img">
                           <img :src="item.product_thumb" alt="">
                         </a>
                         <p class="name">{{item.sku_title}}</p>
@@ -64,7 +65,7 @@
                           <del>¥339</del>
                         </p>
                     </div>
-                 </div>               
+                 </v-touch>               
                 </ul>
                </div>
             </div>
@@ -82,7 +83,7 @@
               </div>
           </h3>
         <ul class="goodsList">
-          <li  v-for="(item,index) in goodsList" :key="item.product_id">
+          <v-touch tag="li" v-for="(item,index) in goodsList" :key="item.product_id" v-on:tap="glID(item.product_id)">
             <a href="#">
               <p>
                 <img :src="item.thumb" alt="">
@@ -101,7 +102,7 @@
                   <i class="iconfont icongouwuchekong"></i>
                 </div>
               </div>
-          </li>
+          </v-touch>
         </ul>
       </main>
 </template>
@@ -143,7 +144,14 @@ export default {
             actionsIGL:"homepage/actionsIGL",
             actionsSL:"homepage/actionsSL",
             actionsJYSL:"homepage/actionsJYSL"
-        })
+        }),
+        //商品列表id传递
+        glID(id){
+            this.$router.push({name:"productdetails",params:{goods_id:id}})
+        },
+        jyID(id){
+            this.$router.push({name:"productdetails",params:{goods_id:id}})
+        }
     },
 }
 </script>

@@ -1,5 +1,5 @@
 export default {
-    path: '/productdetails',
+    path: '/productdetails/:goods_id',
     name:'productdetails',
     component:()=>import('@views/productdetails/productDetails'),
     meta: {
