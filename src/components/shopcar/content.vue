@@ -27,6 +27,7 @@
 <script>
 import Vuex from "vuex";
 import axios  from "axios";
+import { MessageBox } from 'mint-ui';
 import Loading from "@common/loading/Loading";
 export default {
   name: "Content",
@@ -48,7 +49,26 @@ export default {
     }),
   },
   methods: {
-    
+    handleDel(id){ 
+        let _this = this;    
+      MessageBox({
+        title: '提示',
+        message: '确定执行此操作?',
+        showCancelButton: true
+      }).then(function (action) {
+        // console.log(action)
+        if (action === 'confirm') { 
+          //  console.log(444)         
+          _this.handleGoodsDel(id)
+          // console.log(444)
+          //  console.log(this)
+        }
+      }).catch(err=>{
+        if (err == 'cancel') {
+          console.log('error')
+        }
+      })
+    },
     ...Vuex.mapMutations({
       handleGoodsToggle: "cart/handleGoodsToggle",
       handleReduce: "cart/handleReduce",
@@ -56,7 +76,7 @@ export default {
      
     }),
     ...Vuex.mapActions({
-       handleDel: "cart/handleDel",
+       handleGoodsDel: "cart/handleGoodsDel",
        handleGetGoods:"cart/handleGetGoods"
     })
   }

@@ -3,7 +3,7 @@
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 <div class="swiper-slide" v-for="(item,index) in swiperList" :key="item.slide_id">
-                    <img :src="item.silde_original">
+                    <img :src="getImages(item.silde_original)">
                 </div>
             </div>
             <div class="swiper-pagination"></div>
@@ -56,7 +56,7 @@
                  <div class="swiper_slide" v-for="(item,index) in JYswiperList.slice(0,3)" ::key="item.id">
                     <div class="swiper_cent">
                         <a href="#" class="img" data-addr="/index.php?r=p/d&amp;id=20027488&amp;source=mp">
-                          <img :src="item.product_thumb" alt="">
+                          <img :src="getImages(item.product_thumb)" alt="">
                         </a>
                         <p class="name">{{item.sku_title}}</p>
                         <p class="money">
@@ -85,7 +85,7 @@
           <li  v-for="(item,index) in goodsList" :key="item.product_id">
             <a href="#">
               <p>
-                <img :src="item.thumb" alt="">
+                <img :src="getImages(item.thumb)" alt="">
               </p>
             </a>
               <div class="cent">
@@ -139,6 +139,13 @@ export default {
 
     },
     methods: {
+        getImages( _url ){
+            if( _url !== undefined ){
+                let _u = _url.substring( 7 );
+                return 'https://images.weserv.nl/?url=' + _u;
+            }
+        },
+
          ...Vuex.mapActions({
             actionsIGL:"homepage/actionsIGL",
             actionsSL:"homepage/actionsSL",
