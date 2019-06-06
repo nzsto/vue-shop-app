@@ -13,7 +13,6 @@ import search  from "./search";
 import login from "./login";
 import regist from "./regist";
 Vue.use(Router)
-
 export default new Router({
     mode: 'hash',
     routes: [
@@ -30,7 +29,6 @@ export default new Router({
         collect,
         footermark,
         feedback,
-        search,
         login,
         regist
     ]

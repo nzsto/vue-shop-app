@@ -1,14 +1,24 @@
 <template>
      <div id="luo-details">
         <!-- 头部 -->
-        <div class="header">
-            <a href="javascript:;" class="iconfont"><i>&#xe668;</i></a>
+        <div class="header">     <!-- isshow1 white -->
+            <a href="javascript:;" class="iconfont" @click="headBack"><i>&#xe668;</i></a>
             <div>
                 <a href="#">商品</a>
                 <a href="#">详情</a>
                 <a href="#">推荐</a>
             </div>
-            <a href="javascript:;" class="iconfont i1"><i>&#xe613;</i></a>
+            <a href="javascript:;" class="iconfont i1" @click="ShowTo"><i>&#xe613;</i></a>
+        </div>
+          <!-- 头部右边隐藏部分 -->
+        <div class="side" v-show="isShow" >
+            <ul>
+                <router-link to="/homepage" tag="li"><a href="#"><i class="iconfont">&#xe677;</i><span>首页</span></a></router-link>
+                <router-link to="/search" tag="li"><a href="#"><i class="iconfont">&#xe611;</i><span>搜索</span></a></router-link> 
+                <li><a href="#"><i class="iconfont">&#xe608;</i><span>客服</span></a></li>
+                <li><a href="#"><i class="iconfont">&#xe7b9;</i><span>反馈</span></a></li>
+                <router-link to="/mine" tag="li"><a href="#"><i class="iconfont">&#xe631;</i><span>我的</span></a></router-link>
+            </ul>
         </div>
         <!-- 中间部分 -->
         <div class="content">
@@ -211,8 +221,13 @@
         </div>
         
         <!-- 购买 -->
-        <div class="buy">
-           <a href="#"><i class="iconfont">&#xe656;</i></a>
+        <div class="footer">
+            <div class="buy">
+           <a href="#">
+                <i class="iconfont">&#xe656;</i><br/>
+                <span>转发</span>
+            </a>
+          
            <a href="#">
                <i class="iconfont">&#xe637;</i><br>
                <span>收藏</span>
@@ -226,15 +241,40 @@
                 <span>领券购买</span>
             </a>
         </div>
+        </div>
     </div>
 </template>
 <script>
+import Vuex from "vuex"
 export default {
-    
+   name:"producDetails",
+   data(){
+       return{
+           isShow:false
+       }
+   },
+   created(){
+       this.actionsDetails()
+   },
+    methods:{
+        headBack(){
+            window.history.back();
+        },
+        ShowTo(){
+            console.log(666)
+            this.isShow=!this.isShow
+        },
+        ...Vuex.mapActions({
+            actionsDetails:"productdetails/actionsDetails"
+        })
+    },
+    computed:{
+        ...Vuex.mapState({
+            detailsList:state=>state.productdetails.detailsList
+        })
+    }
 }
-$(".i1").on("click",function(){
-        $(".side").toggle()
-    })
+
 </script>
 <style scoped>
 
@@ -244,7 +284,7 @@ $(".i1").on("click",function(){
     width:100%;
     padding:0 .4rem;
     display: flex;
-    justify-content: space-between; 
+    /* justify-content: space-between;  */
     align-items: center;
     position:fixed;
     top:0;
@@ -254,17 +294,20 @@ $(".i1").on("click",function(){
 #luo-details .header .iconfont{
     display: inline-block;
     color:#fff;
+    
 }
 
 #luo-details .header .i1 i{
     font-size:.7rem;
 }
 #luo-details .header div a{
+    justify-content: space-between; 
+    align-items: center;
     display: inline-block;
     color: #666;
     font-size: .32rem;
     padding:.33rem .2rem;
-    margin:0 .1rem;
+    margin:0 .4rem;
 }
 #luo-details i{
     font-style: normal;  
@@ -304,11 +347,12 @@ $(".i1").on("click",function(){
 /* 右上角显示隐藏 */
 #luo-details .side{
     /* display: none; */
+    background: #414140;
     position: fixed;
-    top:1.3rem;
-    right:.2rem;
+    top:1rem;
+    left:3.9rem;
     border-radius: .133rem;
-    z-index: 3;
+    z-index: 3; 
 }
 #luo-details .side ul li{
     padding:0 .3rem;
@@ -317,7 +361,7 @@ $(".i1").on("click",function(){
 }
 #luo-details .side ul li a{
     display: inline-block;
-    padding:.33rem .6rem;
+    padding:.33rem .5rem;
     font-size: .36rem;
     color:#f5f5f5;
     border-bottom:1px solid #f5f5f5;
@@ -332,9 +376,7 @@ $(".i1").on("click",function(){
 }
 /* 中间内容区 */
 /* 全民疯抢 */
-#luo-details .content{
-    padding-bottom: 1.3rem;
-}
+
 #luo-details .content .wid{
     width:100%;
 }
@@ -481,7 +523,7 @@ $(".i1").on("click",function(){
 #luo-details .goodsInfo .news p{
     color:#888;
     font-size:0.3rem;
-    line-height:.3rem;
+    line-height:.5rem;
 }
 /* 分割线 */
 #luo-details .fenge hr{
@@ -567,6 +609,7 @@ $(".i1").on("click",function(){
     width:30%;
     float:left;
     flex-wrap:nowrap;
+    
 }
 #luo-details .tui img{
     width:100%;
@@ -603,18 +646,18 @@ $(".i1").on("click",function(){
 }
 #luo-details .recommend ul{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     border-left:.1rem solid #f5f5f5;
-    
     flex-wrap: wrap;
 }
 #luo-details .recommend ul li{
-    width: 50%;
+    width: 48%;
     border-right:.1rem solid #f5f5f5;
     border-bottom:.1rem solid #f5f5f5;
     padding-bottom:.2rem;
 }
-#luo-details .recommend ul img{
+#luo-details .recommend ul li img{
+    font-size: 0;
     width:100%;
 }
 #luo-details .recommend p{
@@ -646,10 +689,12 @@ $(".i1").on("click",function(){
     align-items: center;
     padding-right:.1rem;
     padding-bottom: .133rem;
+     white-space: nowrap;
 }
 #luo-details .recommend .recom1 span{
     color: #888888;
     font-size:.3rem;
+     white-space: nowrap;
 }
 #luo-details .recommend .recom2,
 #luo-details .recommend .recom2 a{
@@ -659,6 +704,7 @@ $(".i1").on("click",function(){
 #luo-details .recommend .recom2 a{
     border:1px solid #fc4d52;
     padding:.08rem .2rem;
+    white-space: nowrap;
 }
 #luo-details .recommend .recom2 em{
     padding-right:.4rem;
@@ -667,15 +713,16 @@ $(".i1").on("click",function(){
 
 }
 /* 购买 尾部*/
+
 #luo-details .buy{
     width:100%;
     height:1.3rem;
     background:#fff;
     position:fixed;
     bottom:0;
-    z-index: 1;
+    z-index: 6;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding:0 .15rem;
 }
@@ -694,7 +741,7 @@ $(".i1").on("click",function(){
 #luo-details .buy a:last-child{
     color:#fff;
     background:palevioletred;
-    padding:.05rem .7rem;
+    padding:.05rem .5rem;
     border-radius: .067rem;
     
 }
@@ -706,7 +753,7 @@ $(".i1").on("click",function(){
 #luo-details .buy a em{
     font-style: normal;
     font-weight: bold;
-    font-size:.45rem;
+    font-size:.43rem;
 }
 
 </style>
