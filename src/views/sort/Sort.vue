@@ -8,7 +8,7 @@
 <script>
     import Header from "@common/header/Header";
     import Vuex from "vuex";
-    import Sort from "@components/sort/Sort";
+    import Sort from "@components/sort/sort";
     export default {
         name: "Sort",
         data() {

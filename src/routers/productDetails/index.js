@@ -5,5 +5,6 @@ export default {
     meta: {
         TabBarFlag: false,
         keepAlive: false
-    }
+    },
+    props:true
 }
