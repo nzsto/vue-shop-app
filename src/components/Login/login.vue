@@ -8,24 +8,24 @@
             <div class="haoma">
                 <i class="iconfont">&#xe615;</i>
                 <p>
-                    <input type="text" placeholder="手机号码" name="haoma" required>
+                    <input type="text" placeholder="手机号码" v-model="haoma" name="haoma" required>
                     <i class="iconfont">&#xe669;</i>
                 </p>
             </div>
             <p class="xian .xian-red"></p>
-            <p class="p-red">请输入正确11位的手机号码！</p>
+            <p class="p-red" v-show="isShow1">手机号码不正确！</p>
             <div class="mima">
                 <i class="iconfont">&#xe604;</i>
                 <p>
-                    <input type="password" placeholder="密码" name="mima" required>
+                    <input type="password" placeholder="密码" v-model="mima" name="mima" required>
                     <i class="iconfont">&#xe63b;</i>
                 </p>
             </div>
             <p class="xian"></p>
-            <p class="p-red">密码为8-16位的数字或字母！</p>
-            <input type="submit" value="登录" class="sub" name="login">
+            <p class="p-red" v-show="isShow2">密码不正确！</p>
+            <input type="submit" value="登录" class="sub" name="login" @click="login()">
         </form>
-        <p class="denglu">没有账号？立即<router-link to="/regist" tag="a" @click="regist">注册</router-link></p>
+        <p class="denglu">没有账号？立即<router-link to="/regist" tag="a">注册</router-link></p>
         <p class="end"><span>验证码登录</span><span>找回密码</span></p>
     </div>
 </template>
@@ -35,65 +35,54 @@ export default {
     name:"login",
     data(){
         return{
-            regist:""
+            haoma:"",
+            mima:"",
+            isShow1:false,
+            isShow2:false
         }
     },
     methods:{
-        regist(){
-            
+        login(){
+            if(localStorage.user){
+                arr = eval(localStorage.user);//获取localStorage
+                let k = 0;
+                for(e in arr){
+                    if(this.haoma==arr[e].loginName){
+                        if(this.mima==arr[e].loginPsd){
+                            alert('登录成功');
+                            this.isShow1=false
+                            this.isShow2=false
+                            this.haoma=""
+                            this.mima=""
+                            k = 0;
+                            setTimeout(function(){
+                                this.$router.push({path:"/homepage"})
+                            },1000)
+
+                            return;
+                        }else{
+                            alert('密码错误');
+                            this.isShow1=ture;
+                            this.isShow2=ture;
+                            k = 0;
+                            return;
+                        }
+                    }else{
+                        k = 1;
+                    }
+                }
+                if(k==1){
+                    alert('登录失败');
+                    this.isShow1=ture;
+                    this.isShow2=ture;
+                }
+            }else{
+                this.isShow1=ture;
+                this.isShow2=ture;
+            }          
         }
     }
 }
-
-// var haoma = $("input[name=haoma]").val()
-// var password = $("input[name=mima]").val()
-
-// //本地存储
-// function login(){
-//     if(localStorage.user){
-//         arr = eval(localStorage.user);//获取localStorage
-//         var k = 0;
-//         for(e in arr){
-//             if(haoma==arr[e].loginName){
-//                 if(mima==arr[e].loginPsd){
-//                     alert('登录成功');
-//                     $(".p-red").hide()
-//                     clear();
-//                     k = 0;
-//                     return;
-//                 }else{
-//                     $(".p-red").show()
-//                     alert('密码错误');
-//                     clear();
-//                     k = 0;
-//                     return;
-//                 }
-//             }else{
-//                 k = 1;
-//             }
-//         }
-//         if(k==1){
-//             alert('登录成功');
-//             $(".p-red").show()
-//             clear();
-//         }
-//     }else{
-//         $(".p-red").show()
-//         clear();
-//     }
-// }
-// function clear(){
-//     $('input[name=haoma]').val('');
-//     $("input[name=mima]").val('');
-// }
-
-
-// $(function () {
-//     $('#luo-regist input[name=login]').on('click',function(){
-//         login()
-//     })
-
-// })
 
 </script>
 <style scoped>
@@ -201,7 +190,7 @@ export default {
     font-size: .3rem;
     padding-top:.3rem;
     border-top:1px solid #FC3F78;
-    display: none;
+    /* display: none; */
 }
 
 /* 登录 */
