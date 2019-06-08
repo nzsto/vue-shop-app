@@ -13,7 +13,7 @@
                 </p>
             </div>
             <p class="xian .xian-red"></p>
-            <p class="p-red1">请输入正确11位的手机号码！</p>
+            <p class="p-red" v-show="isShow1">请输入正确11位的手机号码！</p>
             <div class="yanzheng">
                 <i class="iconfont">&#xe657;</i>
                 <div>
@@ -22,7 +22,7 @@
                 </div>
             </div>
             <p class="xian"></p>
-            <p class="p-red2">验证码不能为空！</p>
+            <p class="p-red" v-show="isShow2">验证码不能为空！</p>
             <div class="mima">
                 <i class="iconfont">&#xe604;</i>
                 <p>
@@ -31,7 +31,7 @@
                 </p>
             </div>
             <p class="xian"></p>
-            <p class="p-red3">密码为8-16位的数字或字母！</p>
+            <p class="p-red" v-show="isShow3">密码为8-16位的数字或字母！</p>
             <input type="submit" value="注册" class="sub" name="regist" @click="login">
         </form>
         <p class="agree">点击“注册”表示您已同意 <a href="#">《领券吧用户协议》</a></p>
@@ -43,6 +43,9 @@ export default {
     name:"regist",
     data(){
         return{
+            isShow1:false,
+            isShow2:false,
+            isShow3:false,
             haoma:"",
             yanzhengma:"",
             mima:""
@@ -238,14 +241,12 @@ export default {
     border-top:1px solid #ccc;
 }
 /* 隐藏部分 */
-#luo-regist .p-red1,
-#luo-regist .p-red2,
-#luo-regist .p-red3{
+#luo-regist .p-red{
     color:#FC3F78;
     font-size: .3rem;
     padding-top:.3rem;
     border-top:1px solid #FC3F78;
-    display: none;
+    /* display: none; */
 }
 
 </style>

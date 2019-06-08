@@ -16,6 +16,8 @@ Vue.use(VueTouch, {
     name: 'v-touch'
 })
 import Loading from "@common/loading/Loading"
+Vue.component("BScroll",BScroll);
+Vue.component("Loading",Loading);
 new Vue({
     store,
     router,

@@ -1,4 +1,5 @@
 export  default {
-    detailsList:[]
+    detailsList:[],
+    detailsNowLoading:true
 
 }

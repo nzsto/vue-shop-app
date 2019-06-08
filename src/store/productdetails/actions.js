@@ -1,12 +1,11 @@
-import {productdetails} from "@api/productDetails";
+import {pproductdetailsID} from "@api/productdetalis";
 
 export  default {
     //首页商品列表
-    async actionsDetails({commit}){
-        let data = await productdetails();
-        console.log(666)
-        console.log(data.data)
-        commit("mutationsDetails",data.data)
+    async actionsDetails({commit},params){
+        let data = await pproductdetailsID(params);
+        // console.log(data)
+        commit("mutationsDetails",data)
     }
 }
 

@@ -1,226 +1,228 @@
 <template>
-     <div>
-         <div id="luo-details">
-        <!-- 头部 -->
-        <div class="header">     <!-- isshow1 white -->
-            <a href="javascript:;" class="iconfont" @click="headBack"><i>&#xe668;</i></a>
-            <div>
-                <a href="#">商品</a>
-                <a href="#">详情</a>
-                <a href="#">推荐</a>
+        <div id="luo-details">
+            <Loading v-if="detailsNowLoading"></Loading>
+            <p v-if="pullUpFlag" class="shuaxin">{{pullUpInfo}}</p>
+            <!-- 头部 -->
+            <div class="header">     <!-- isshow1 white -->
+                <a href="javascript:;" class="iconfont" @click="headBack"><i>&#xe668;</i></a>
+                <div>
+                    <v-touch href="#" v-on:tap="handleShop()" tag="a">商品</v-touch>
+                    <v-touch href="#" v-on:tap="handleDetails()" tag="a">详情</v-touch>
+                    <v-touch href="#" v-on:tap="handleRecomend()" tag="a">推荐</v-touch>
+                </div>
+                <a href="javascript:;" class="iconfont i1" @click="ShowTo"><i>&#xe613;</i></a>
             </div>
-            <a href="javascript:;" class="iconfont i1" @click="ShowTo"><i>&#xe613;</i></a>
-        </div>
-          <!-- 头部右边隐藏部分 -->
-        <div class="side" v-show="isShow" >
-            <ul>
-                <router-link to="/homepage" tag="li"><a href="#"><i class="iconfont">&#xe677;</i><span>首页</span></a></router-link>
-                <router-link to="/search" tag="li"><a href="#"><i class="iconfont">&#xe611;</i><span>搜索</span></a></router-link> 
-                <li><a href="#"><i class="iconfont">&#xe608;</i><span>客服</span></a></li>
-                <li><a href="#"><i class="iconfont">&#xe7b9;</i><span>反馈</span></a></li>
-                <router-link to="/mine" tag="li"><a href="#"><i class="iconfont">&#xe631;</i><span>我的</span></a></router-link>
-            </ul>
-        </div>
-        <!-- 中间部分 -->
-        <div class="content">
-            <img src="../../../public/images/1.jpg" alt="" class="wid">
-            <div class="active">
-                <img src="../../../public/images/content1.png" />
-                <p class="color_p">近24小时，24.4万人已抢</p>
-                <div class="active1">
-                    <span>No.126</span>
-                    <p>疯抢排名</p>
-                </div>
+            <!-- 头部右边隐藏部分 -->
+            <div class="side" v-show="isShow" >
+                <ul>
+                    <router-link to="/homepage" tag="li"><a href="#"><i class="iconfont">&#xe677;</i><span>首页</span></a></router-link>
+                    <router-link to="/search" tag="li"><a href="#"><i class="iconfont">&#xe611;</i><span>搜索</span></a></router-link> 
+                    <li><a href="#"><i class="iconfont">&#xe608;</i><span>客服</span></a></li>
+                    <li><a href="#"><i class="iconfont">&#xe7b9;</i><span>反馈</span></a></li>
+                    <router-link to="/mine" tag="li"><a href="#"><i class="iconfont">&#xe631;</i><span>我的</span></a></router-link>
+                </ul>
             </div>
-
-            <div class="goodsInfo">
-                <h1>
-                    <span>天猫</span>
-                    <p><a href="#">【音服2件26-初夏轻语风】情侣短袖t恤</a></p>
-                </h1>
-                <div class="cheapPrice">
-                    <p class="price">券后价<i class="price">￥</i><span>14.8</span></p>
-                    <p>已售<span>24.4</span>万</p>
-                </div>
-                <div class="nowprice">
-                    <p>天猫价<i>￥</i><span>14.8</span></p>
-                    <p>
-                        <span><i class="iconfont">&#xe614;</i>包邮</span>
-                        <span><i class="iconfont">&#xe614;</i>运费险</span>
-                    </p>
-                </div>
-                
-                <a href="#" class="quan">
-                    <img src="../../../public/images/content2.png" alt="">
-                </a>
-                <div class="quan_message">
-                    <div class="quan_p">
-                        <p class="quan_f"><span>5</span>元优惠券</p>
-                        <p>使用期限2019.5.22-1019.6.01</p>
+            <!-- 中间部分 -->
+            <BScroll ref="contentscroll">
+            <div class="content contentscroll">
+                <img src="../../../public/images/1.jpg" alt="" class="wid">
+                <div class="active">
+                    <img src="../../../public/images/content1.png" />
+                    <p class="color_p">近24小时，24.4万人已抢</p>
+                    <div class="active1">
+                        <span>No.126</span>
+                        <p>疯抢排名</p>
                     </div>
-                    <p class="quan_p1">立即领劵</p>
-                </div>
-                <div class="news">
-                    <p>【音服旗舰店】最新初夏轻语风情侣系列50+花色可选，累积爆卖30万单，4.9超高评分~弹性好不变形，穿着舒适不紧绷，款式简单大方，百搭不挑人，全棉面料，柔软舒适透气，划算到爆！ </p>
-                </div>
-            </div>
-            <!-- 分割线 -->
-            <div class="fenge">
-                <hr />
-            </div>
-            <!-- 店铺信息 -->
-            <div class="stroenews">
-                <div class="stroenews_l">
-                    <p><img src="../../../public/images/1.jpg" alt=""></p>
-                    <h3>
-                        <p>音乐旗舰店</p>
-                        <i class="iconfont">&#xe7c5;</i>
-                    </h3>
                 </div>
 
-                <p><a href="#">店铺所有优惠&nbsp;></a></p>  
-            </div>
-            <div class="pingjia">
-                <a href="#">宝贝描述：<span>4.8</span><i class="iconfont">&#xe8bd;</i></a>
-                <a href="#">卖家服务：<span>4.8</span><i class="iconfont">&#xe8bd;</i></a>
-                <a href="#">物流服务：<span>4.8</span><i class="iconfont">&#xe8bd;</i></a>
-            </div>
-            <div class="fenge">
+                <div class="goodsInfo">
+                    <h1>
+                        <span>天猫</span>
+                        <p><a href="#">【音服2件26-初夏轻语风】情侣短袖t恤</a></p>
+                    </h1>
+                    <div class="cheapPrice">
+                        <p class="price">券后价<i class="price">￥</i><span>14.8</span></p>
+                        <p>已售<span>24.4</span>万</p>
+                    </div>
+                    <div class="nowprice">
+                        <p>天猫价<i>￥</i><span>14.8</span></p>
+                        <p>
+                            <span><i class="iconfont">&#xe614;</i>包邮</span>
+                            <span><i class="iconfont">&#xe614;</i>运费险</span>
+                        </p>
+                    </div>
+                    
+                    <a href="#" class="quan">
+                        <img src="../../../public/images/content2.png" alt="">
+                    </a>
+                    <div class="quan_message">
+                        <div class="quan_p">
+                            <p class="quan_f"><span>5</span>元优惠券</p>
+                            <p>使用期限2019.5.22-1019.6.01</p>
+                        </div>
+                        <p class="quan_p1">立即领劵</p>
+                    </div>
+                    <div class="news">
+                        <p>【音服旗舰店】最新初夏轻语风情侣系列50+花色可选，累积爆卖30万单，4.9超高评分~弹性好不变形，穿着舒适不紧绷，款式简单大方，百搭不挑人，全棉面料，柔软舒适透气，划算到爆！ </p>
+                    </div>
+                </div>
+                <!-- 分割线 -->
+                <div class="fenge">
                     <hr />
-            </div>
-            <!-- 相似推荐 -->
-            <div class="tuijian">
-                <h3>相似推荐</h3>
-                <ul class="tuijianlist">
-                    <li class="tui">
-                        <a href="#"> <img src="../../../public/images/tuijian.jpg" alt=""></a>
-                        <p><a href="#" class="texthide">音服2件26-初夏轻语风】情侣短袖T恤</a></p>
-                        <a href="#">5元券</a>
-                        <p>券后价￥<span>11</span></p>
+                </div>
+                <!-- 店铺信息 -->
+                <div class="stroenews">
+                    <div class="stroenews_l">
+                        <p><img src="../../../public/images/1.jpg" alt=""></p>
+                        <h3>
+                            <p>音乐旗舰店</p>
+                            <i class="iconfont">&#xe7c5;</i>
+                        </h3>
+                    </div>
+
+                    <p><a href="#">店铺所有优惠&nbsp;></a></p>  
+                </div>
+                <div class="pingjia">
+                    <a href="#">宝贝描述：<span>4.8</span><i class="iconfont">&#xe8bd;</i></a>
+                    <a href="#">卖家服务：<span>4.8</span><i class="iconfont">&#xe8bd;</i></a>
+                    <a href="#">物流服务：<span>4.8</span><i class="iconfont">&#xe8bd;</i></a>
+                </div>
+                <div class="fenge">
+                        <hr />
+                </div>
+                <!-- 相似推荐 -->
+                <div class="tuijian">
+                    <h3>相似推荐</h3>
+                    <ul class="tuijianlist">
+                        <li class="tui">
+                            <a href="#"> <img src="../../../public/images/tuijian.jpg" alt=""></a>
+                            <p><a href="#" class="texthide">音服2件26-初夏轻语风】情侣短袖T恤</a></p>
+                            <a href="#">5元券</a>
+                            <p>券后价￥<span>11</span></p>
+                        </li>
+                        <li class="tui">
+                            <a href="#"> <img src="../../../public/images/tuijian.jpg" alt=""></a>
+                            <p><a href="#" class="texthide">【音服2件26-初夏轻语风】情侣短袖T恤</a></p>
+                            <a href="#">5元券</a>
+                            <p>券后价￥<span>11</span></p>
+                        </li>
+                        <li class="tui">
+                            <a href="#"> <img src="../../../public/images/tuijian.jpg" alt=""></a>
+                            <p><a href="#" class="texthide">【音服2件26-初夏轻语风】情侣短袖T恤</a></p>
+                            <a href="#">5元券</a>
+                            <p>券后价￥<span>11</span></p>
+                        </li>
+                        <li class="tui">
+                            <a href="#"> <img src="../../../public/images/tuijian.jpg" alt=""></a>
+                            <p><a href="#" class="texthide">【音服2件26-初夏轻语风】情侣短袖T恤</a></p>
+                            <a href="#">5元券</a>
+                            <p>券后价￥<span>11</span></p>
+                        </li>
+                        <li class="tui">
+                            <a href="#"> <img src="../../../public/images/tuijian.jpg" alt=""></a>
+                            <p><a href="#" class="texthide">音服2件26-初夏轻语风】情侣短袖T恤</a></p>
+                            <a href="#">5元券</a>
+                            <p>券后价￥<span>11</span></p>
+                        </li>
+                        <li class="tui">
+                            <a href="#"> <img src="../../../public/images/tuijian.jpg" alt=""></a>
+                            <p><a href="#" class="texthide">【音服2件26-初夏轻语风】情侣短袖T恤</a></p>
+                            <a href="#">5元券</a>
+                            <p>券后价￥<span>11</span></p>
+                        </li>
+                        <li class="tui">
+                            <a href="#"> <img src="../../../public/images/tuijian.jpg" alt=""></a>
+                            <p><a href="#" class="texthide">【音服2件26-初夏轻语风】情侣短袖T恤</a></p>
+                            <a href="#">5元券</a>
+                            <p>券后价￥<span>11</span></p>
+                        </li>
+                        <li class="tui">
+                            <a href="#"> <img src="../../../public/images/tuijian.jpg" alt=""></a>
+                            <p><a href="#" class="texthide">【音服2件26-初夏轻语风】情侣短袖T恤</a></p>
+                            <a href="#">5元券</a>
+                            <p>券后价￥<span>11</span></p>
+                        </li>
+                    </ul>
+                </div>
+                <!-- 分割线 -->
+                <div class="fenge">
+                    <hr>
+                </div>
+                <!-- 宝贝详情 -->
+                <div class="thingDetails" ref="details">
+                    <h3>宝贝详情</h3>
+                    <img src="../../../public/images/details.jpg" alt="">
+                    <img src="../../../public/images/details.jpg" alt="">
+                    <img src="../../../public/images/details.jpg" alt="">
+                    <img src="../../../public/images/details.jpg" alt="">
+                    <img src="../../../public/images/details.jpg" alt="">
+                </div>
+                <div class="fenge">
+                    <hr>
+                </div>
+                <!-- 推荐 今日热销 -->
+            <div class="recommend" ref="recommend">
+                <h3>今日热销</h3>
+                <ul> 
+                    <li>
+                        <a href="#"><img src="../../../public/images/tuijian.jpg" alt=""></a>
+                        <p class="recom"><i class="iconfont">&#xe799;</i><a href="#" class="texthide">巨划算【好吉利】本色卷纸14卷</a></p>
+                        <p class="recom1">
+                            <span>天猫价￥<em>19.9</em></span>
+                            <span>已售<em>1.7万</em></span>
+                        </p>
+                        <p class="recom2">券后价￥<em>11</em><a href="#">10元券</a></p>
                     </li>
-                    <li class="tui">
+                    <li>
                         <a href="#"> <img src="../../../public/images/tuijian.jpg" alt=""></a>
-                        <p><a href="#" class="texthide">【音服2件26-初夏轻语风】情侣短袖T恤</a></p>
-                        <a href="#">5元券</a>
-                        <p>券后价￥<span>11</span></p>
+                        <p class="recom"><i class="iconfont">&#xe799;</i><a href="#" class="texthide">巨划算【好吉利】本色卷纸14卷</a></p>
+                        <p class="recom1">
+                            <span>天猫价￥<em>19.9</em></span>
+                            <span>已售<em>1.7万</em></span>
+                        </p>
+                        <p class="recom2">券后价￥<em>11</em><a href="#">10元券</a></p>
                     </li>
-                    <li class="tui">
+                    <li>
                         <a href="#"> <img src="../../../public/images/tuijian.jpg" alt=""></a>
-                        <p><a href="#" class="texthide">【音服2件26-初夏轻语风】情侣短袖T恤</a></p>
-                        <a href="#">5元券</a>
-                        <p>券后价￥<span>11</span></p>
+                        <p class="recom"><i class="iconfont">&#xe799;</i><a href="#" class="texthide">巨划算【好吉利】本色卷纸14卷</a></p>
+                        <p class="recom1">
+                            <span>天猫价￥<em>19.9</em></span>
+                            <span>已售<em>1.7万</em></span>
+                        </p>
+                        <p class="recom2">券后价￥<em>11</em><a href="#">10元券</a></p>
                     </li>
-                    <li class="tui">
+                    <li>
                         <a href="#"> <img src="../../../public/images/tuijian.jpg" alt=""></a>
-                        <p><a href="#" class="texthide">【音服2件26-初夏轻语风】情侣短袖T恤</a></p>
-                        <a href="#">5元券</a>
-                        <p>券后价￥<span>11</span></p>
+                        <p class="recom"><i class="iconfont">&#xe799;</i><a href="#" class="texthide">巨划算【好吉利】本色卷纸14卷</a></p>
+                        <p class="recom1">
+                            <span>天猫价￥<em>19.9</em></span>
+                            <span>已售<em>1.7万</em></span>
+                        </p>
+                        <p class="recom2">券后价￥<em>11</em><a href="#">10元券</a></p>
                     </li>
-                     <li class="tui">
+                    <li>
                         <a href="#"> <img src="../../../public/images/tuijian.jpg" alt=""></a>
-                        <p><a href="#" class="texthide">音服2件26-初夏轻语风】情侣短袖T恤</a></p>
-                        <a href="#">5元券</a>
-                        <p>券后价￥<span>11</span></p>
+                        <p class="recom"><i class="iconfont">&#xe799;</i><a href="#" class="texthide">巨划算【好吉利】本色卷纸14卷</a></p>
+                        <p class="recom1">
+                            <span>天猫价￥<em>19.9</em></span>
+                            <span>已售<em>1.7万</em></span>
+                        </p>
+                        <p class="recom2">券后价￥<em>11</em><a href="#">10元券</a></p>
                     </li>
-                    <li class="tui">
+                    <li>
                         <a href="#"> <img src="../../../public/images/tuijian.jpg" alt=""></a>
-                        <p><a href="#" class="texthide">【音服2件26-初夏轻语风】情侣短袖T恤</a></p>
-                        <a href="#">5元券</a>
-                        <p>券后价￥<span>11</span></p>
-                    </li>
-                    <li class="tui">
-                        <a href="#"> <img src="../../../public/images/tuijian.jpg" alt=""></a>
-                        <p><a href="#" class="texthide">【音服2件26-初夏轻语风】情侣短袖T恤</a></p>
-                        <a href="#">5元券</a>
-                        <p>券后价￥<span>11</span></p>
-                    </li>
-                    <li class="tui">
-                        <a href="#"> <img src="../../../public/images/tuijian.jpg" alt=""></a>
-                        <p><a href="#" class="texthide">【音服2件26-初夏轻语风】情侣短袖T恤</a></p>
-                        <a href="#">5元券</a>
-                        <p>券后价￥<span>11</span></p>
+                        <p class="recom"><i class="iconfont">&#xe799;</i><a href="#" class="texthide">巨划算【好吉利】本色卷纸14卷</a></p>
+                        <p class="recom1">
+                            <span>天猫价￥<em>19.9</em></span>
+                            <span>已售<em>1.7万</em></span>
+                        </p>
+                        <p class="recom2">券后价￥<em>11</em><a href="#">10元券</a></p>
                     </li>
                 </ul>
             </div>
-            <!-- 分割线 -->
-            <div class="fenge">
-                <hr>
-            </div>
-             <!-- 宝贝详情 -->
-            <div class="thingDetails">
-                <h3>宝贝详情</h3>
-                <img src="../../../public/images/details.jpg" alt="">
-                <img src="../../../public/images/details.jpg" alt="">
-                <img src="../../../public/images/details.jpg" alt="">
-                <img src="../../../public/images/details.jpg" alt="">
-                <img src="../../../public/images/details.jpg" alt="">
-            </div>
-            <div class="fenge">
-                <hr>
-            </div>
-            <!-- 推荐 今日热销 -->
-        <div class="recommend">
-            <h3>今日热销</h3>
-            <ul> 
-                <li>
-                    <a href="#"><img src="../../../public/images/tuijian.jpg" alt=""></a>
-                    <p class="recom"><i class="iconfont">&#xe799;</i><a href="#" class="texthide">巨划算【好吉利】本色卷纸14卷</a></p>
-                    <p class="recom1">
-                        <span>天猫价￥<em>19.9</em></span>
-                        <span>已售<em>1.7万</em></span>
-                    </p>
-                    <p class="recom2">券后价￥<em>11</em><a href="#">10元券</a></p>
-                </li>
-                <li>
-                    <a href="#"> <img src="../../../public/images/tuijian.jpg" alt=""></a>
-                    <p class="recom"><i class="iconfont">&#xe799;</i><a href="#" class="texthide">巨划算【好吉利】本色卷纸14卷</a></p>
-                    <p class="recom1">
-                        <span>天猫价￥<em>19.9</em></span>
-                        <span>已售<em>1.7万</em></span>
-                    </p>
-                    <p class="recom2">券后价￥<em>11</em><a href="#">10元券</a></p>
-                </li>
-                <li>
-                    <a href="#"> <img src="../../../public/images/tuijian.jpg" alt=""></a>
-                    <p class="recom"><i class="iconfont">&#xe799;</i><a href="#" class="texthide">巨划算【好吉利】本色卷纸14卷</a></p>
-                    <p class="recom1">
-                        <span>天猫价￥<em>19.9</em></span>
-                        <span>已售<em>1.7万</em></span>
-                    </p>
-                    <p class="recom2">券后价￥<em>11</em><a href="#">10元券</a></p>
-                </li>
-                <li>
-                    <a href="#"> <img src="../../../public/images/tuijian.jpg" alt=""></a>
-                    <p class="recom"><i class="iconfont">&#xe799;</i><a href="#" class="texthide">巨划算【好吉利】本色卷纸14卷</a></p>
-                    <p class="recom1">
-                        <span>天猫价￥<em>19.9</em></span>
-                        <span>已售<em>1.7万</em></span>
-                    </p>
-                    <p class="recom2">券后价￥<em>11</em><a href="#">10元券</a></p>
-                </li>
-                <li>
-                    <a href="#"> <img src="../../../public/images/tuijian.jpg" alt=""></a>
-                    <p class="recom"><i class="iconfont">&#xe799;</i><a href="#" class="texthide">巨划算【好吉利】本色卷纸14卷</a></p>
-                    <p class="recom1">
-                        <span>天猫价￥<em>19.9</em></span>
-                        <span>已售<em>1.7万</em></span>
-                    </p>
-                    <p class="recom2">券后价￥<em>11</em><a href="#">10元券</a></p>
-                </li>
-                <li>
-                    <a href="#"> <img src="../../../public/images/tuijian.jpg" alt=""></a>
-                    <p class="recom"><i class="iconfont">&#xe799;</i><a href="#" class="texthide">巨划算【好吉利】本色卷纸14卷</a></p>
-                    <p class="recom1">
-                        <span>天猫价￥<em>19.9</em></span>
-                        <span>已售<em>1.7万</em></span>
-                    </p>
-                    <p class="recom2">券后价￥<em>11</em><a href="#">10元券</a></p>
-                </li>
-            </ul>
         </div>
-        
-        </div>
-        
+        </BScroll>
+            
         <!-- 购买 -->
         <div class="buy">
             <a href="#">
@@ -241,7 +243,6 @@
             </a>
         </div>
     </div>
-     </div>
 </template>
 <script>
 import Vuex from "vuex"
@@ -249,27 +250,61 @@ export default {
    name:"producDetails",
    data(){
        return{
-           isShow:false
+           isShow:false,
+           pullUpFlag:false,
+           pullUpInfo:"正在加载"
        }
-   },
-   created(){
-       this.actionsDetails()
-   },
+    },
+    props:["id"],
+    created(){
+        this.actionsDetails()
+    },
+    mounted(){
+        this.$refs.contentscroll.handleScrollPullUp(()=>{
+            this.pullUpFlag=true;
+            this.pullUpInfo="正在加载"
+
+        });
+        this.$refs.contentscroll.handleScrollPullDown(()=>{
+            this.pullUpInfo="加载完毕"
+            setTimeout(()=>{
+                this.pullUpFlag=false;
+                
+            },500)
+        })
+    },
+    activated(){
+        this.actionsDetails(this.id)
+    },
     methods:{
         headBack(){
             window.history.back();
         },
         ShowTo(){
-            console.log(666)
             this.isShow=!this.isShow
         },
         ...Vuex.mapActions({
             actionsDetails:"productdetails/actionsDetails"
-        })
+        }),
+        handleShop(){
+           this.$refs.contentscroll.scrollTop=0 //无法滚动 待解决
+        },
+        handleDetails(){
+            let details=this.$refs.details
+            this.$refs.contentscroll.scrollTop=details.offsetTop //无法滚动 待解决
+        },
+        handleRecomend(){
+            let recom=this.$refs.recommend
+            // console.log(recom)
+            // console.log(recom.offsetTop)
+            this.$refs.contentscroll.scrollTop=recom.offsetTop   //无法滚动 待解决
+            // console.log(this.$refs.contentscroll.scrollTop)
+        }
     },
     computed:{
         ...Vuex.mapState({
-            detailsList:state=>state.productdetails.detailsList
+            detailsList:state=>state.productdetails.detailsList,
+            detailsNowLoading:state=>state.productdetails.detailsNowLoading
         })
     }
 }
@@ -279,15 +314,28 @@ export default {
 
 /* 详情页面 */
 /* 头部 */
+#luo-details{
+    overflow-x: hidden;
+    
+}
+#luo-details .contentscroll{
+    width:100%;
+    height:100%;
+    /* position:absolute; */
+    position:fixed;
+}
+#luo-details .shuaxin{
+    width:100%;
+    text-align:center;
+}
 #luo-details .header{
     width:100%;
-    padding:0 .4rem;
     display: flex;
-    /* justify-content: space-between;  */
+    justify-content: space-around; 
     align-items: center;
     position:fixed;
     top:0;
-    z-index: 1;
+    z-index: 3;
 }
 
 #luo-details .header .iconfont{
@@ -454,7 +502,6 @@ export default {
 #luo-details .goodsInfo .cheapPrice .price span{
     color: #e61514;
     font-size: .5rem;
-    /* font-weight: bolder; */
     padding-left: .066667rem;
 }
 #luo-details .goodsInfo .cheapPrice span{
@@ -495,7 +542,7 @@ export default {
 }
 #luo-details  .quan_message .quan_p{
     text-align: center; 
-    padding:0 0.5rem 0 0.5rem;
+    padding:0 0.3rem 0 0.4rem;
     border-right: 1px dashed #fff;
 }
 #luo-details  .quan_message .quan_f span{
@@ -723,18 +770,16 @@ export default {
     z-index: 6;
     display: flex;
     overflow-x: hidden;
-    /* justify-content: space-between; */
+    justify-content: space-around;
     align-items: center;
     padding:0 .15rem;
 }
 #luo-details .buy a{
     font-size:.3rem;
-    padding-left: 0.6rem;
 }
 #luo-details .buy a:nth-child(3){
     color:#FE9E6B;
     font-size:.35rem;
-    padding-right: 0.5rem;
 }
 #luo-details .buy .pany{
     padding-left:.1rem;
