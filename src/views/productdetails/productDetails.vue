@@ -25,7 +25,7 @@
                 </ul>
             </div>
             <!-- 中间部分 -->
-            <BScroll ref="contentscroll">
+            <div ref="contentscroll">
             <div class="content contentscroll">
                 <img :src="getImages(detailsList.goods_info.product_img)" alt="" class="wid">
                 <div class="active">
@@ -141,7 +141,7 @@
                 </ul>
             </div>
         </div>
-        </BScroll>
+        </div>
             
         <!-- 购买 -->
         <div class="buy">
@@ -246,7 +246,7 @@ export default {
     width:100%;
     height:100%;
     /* position:absolute; */
-    position:fixed;
+    /* position:fixed; */
 }
 #luo-details .shuaxin{
     width:100%;
