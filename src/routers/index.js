@@ -30,6 +30,8 @@ export default new Router({
         footermark,
         feedback,
         login,
-        regist
+        regist,
+        search
+    
     ]
 })

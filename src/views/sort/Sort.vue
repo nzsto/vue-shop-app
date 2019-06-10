@@ -10,7 +10,7 @@
     import Vuex from "vuex";
     import Sort from "@components/sort/Sort";
     export default {
-        name: "Sort",
+        name: "sort",
         data() {
             return {
                 title: '我的分类',

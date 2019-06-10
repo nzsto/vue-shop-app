@@ -5,6 +5,6 @@ export default {
     async actionsSort({commit}){
         let data = await sortGoodsList();
         commit("mutationsSort",data.data)
-        console.log(data.data)
+        //console.log(data.data)
     }
 }
