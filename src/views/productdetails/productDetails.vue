@@ -27,12 +27,12 @@
             <!-- 中间部分 -->
             <div ref="contentscroll">
             <div class="content contentscroll">
-                <img :src="getImages(detailsList.goods_info.product_img)" alt="" class="wid">
+                <img :src="getImages(detailsList.goods_info ? detailsList.goods_info.big_thumb :'' )" alt="" class="wid">
                 <div class="active">
                     <img src="../../../public/images/content1.png" />
                     <p class="color_p">近24小时，24.4万人已抢</p>
                     <div class="active1">
-                        <span>No.{{detailsList.goods_info.goods_type}}</span>
+                        <span>No.{{detailsList.goods_info ? detailsList.goods_info.goods_type : '' }}</span>
                         <p>疯抢排名</p>
                     </div>
                 </div>
@@ -40,14 +40,14 @@
                 <div class="goodsInfo">
                     <h1>
                         <span>天猫</span>
-                        <p><a href="#">{{detailsList.goods_info.title}}</a></p>
+                        <p><a href="#">{{detailsList.goods_info ? detailsList.goods_info.title : ''}}</a></p>
                     </h1>
                     <div class="cheapPrice">
-                        <p class="price">券后价<i class="price">￥</i><span>{{detailsList.goods_info.good_price}}</span></p>
+                        <p class="price">券后价<i class="price">￥</i><span>{{detailsList.goods_info?detailsList.goods_info.good_price:''}}</span></p>
                         <p>已售<span>24.4</span>万</p>
                     </div>
                     <div class="nowprice">
-                        <p>天猫价<i>￥</i><span>{{detailsList.goods_info.good_price}}</span></p>
+                        <p>天猫价<i>￥</i><span>{{detailsList.goods_info?detailsList.goods_info.good_price:''}}</span></p>
                         <p>
                             <span><i class="iconfont">&#xe614;</i>包邮</span>
                             <span><i class="iconfont">&#xe614;</i>运费险</span>
@@ -65,8 +65,8 @@
                         <p class="quan_p1">立即领劵</p>
                     </div>
                     <div class="news">
-                        <p>{{detailsList.goods_info.send_store}}<br/>
-                            {{detailsList.para_arr[1]}}
+                        <p>{{detailsList.goods_info?detailsList.goods_info.send_store:''}}<br/>
+                            {{detailsList.para_arr?detailsList.para_arr[1]:''}}
                         </p>
                     </div>
                 </div>
@@ -77,9 +77,9 @@
                 <!-- 店铺信息 -->
                 <div class="stroenews">
                     <div class="stroenews_l">
-                        <p><img :src="getImages(detailsList.goods_info.product_img)" alt=""></p>
+                        <p><img :src="getImages(detailsList.goods_info?detailsList.goods_info.product_img:'')" alt=""></p>
                         <h3>
-                            <p>{{detailsList.goods_info.mbpage_title}}</p>
+                            <p>{{detailsList.goods_info?detailsList.goods_info.mbpage_title:''}}</p>
                             <i class="iconfont">&#xe7c5;</i>
                         </h3>
                     </div>
@@ -98,7 +98,7 @@
                 <div class="tuijian">
                     <h3>相似推荐</h3>
                     <ul class="tuijianlist">
-                        <li class="tui" v-for="(item,inde) in detailsList.relation_information" :key="inde">
+                        <li class="tui" v-for="item in detailsList.relation_information" >
                             <a href="#"> <img :src="getImages(item.thumb)" alt="" style="height:2.6rem"></a>
                             <p><a href="#" class="texthide">{{item.content}}</a></p>
                             <a href="#">{{item.type}}元券</a>
@@ -113,10 +113,9 @@
                 <!-- 宝贝详情 -->
                 <div class="thingDetails" ref="details">
                     <h3>宝贝详情</h3>
-                    <p class="detail" v-for="(item,index) in detailsList.para_arr" :key="index">{{item}}</p>
-                    <img :src="getImages(detailsList.goods_info.product_img)">
-                    <img  v-for="(item,ind) in detailsList.oversea_advice" 
-                    :key="ind" 
+                    <p class="detail" v-for="item in detailsList.para_arr">{{item}}</p>
+                    <img :src="getImages(detailsList.goods_info?detailsList.goods_info.big_thumb:'')">
+                    <img  v-for="item in detailsList.oversea_advice" 
                     :src="getImages(item.thumb)" alt=""
                     >
 
@@ -154,11 +153,11 @@
                 <span>收藏</span>
             </a>
             <a href="#">
-                <span>￥<em>{{detailsList.goods_info.good_price}}</em></span><br>
+                <span>￥<em>{{detailsList.goods_info?detailsList.goods_info.good_price:''}}</em></span><br>
                 <span class="pany">不领券</span>
             </a>
             <a href="#">
-                <span>￥<em>{{detailsList.goods_info.good_price}}</em></span><br>
+                <span>￥<em>{{detailsList.goods_info?detailsList.goods_info.good_price:''}}</em></span><br>
                 <span>领券购买</span>
             </a>
         </div> 
@@ -181,20 +180,20 @@ export default {
         this.actionsDetails(this.goods_id)
         
     },
-    mounted(){
-        this.$refs.contentscroll.handleScrollPullUp(()=>{
-            this.pullUpFlag=true;
-            this.pullUpInfo="正在加载"
+    // mounted(){
+    //     this.$refs.contentscroll.handleScrollPullUp(()=>{
+    //         this.pullUpFlag=true;
+    //         this.pullUpInfo="正在加载"
 
-        });
-        this.$refs.contentscroll.handleScrollPullDown(()=>{
-            this.pullUpInfo="加载完毕"
-            setTimeout(()=>{
-                this.pullUpFlag=false;
+    //     });
+    //     this.$refs.contentscroll.handleScrollPullDown(()=>{
+    //         this.pullUpInfo="加载完毕"
+    //         setTimeout(()=>{
+    //             this.pullUpFlag=false;
                 
-            },500)
-        })
-    },
+    //         },500)
+    //     })
+    // },
     methods:{
         ...Vuex.mapActions({
             actionsDetails:"productdetails/actionsDetails"

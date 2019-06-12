@@ -11,9 +11,9 @@
             </ul>
         </div>
         <!-- 右边 -->
-        <div class="shop_wrapper">
+     <div class="shop_wrapper">
             <ul ref="itemList">
-                <li class="shops-li" v-for="(goods, index1) in sortGoodsLists" :key="index1">
+                <!--<li class="shops-li" v-for="(goods, index1) in sortGoodsLists" :key="index1">
                     <div class="shops-title">
                         <h4>{{goods.cata_name}}</h4>
                     </div>
@@ -28,8 +28,44 @@
                             <span>{{item.cata_name}}</span>
                         </li>
                     </ul>
+                </li>-->
+                <li class="shops-li">
+                    <div class="shops-content">
+                        <img src="img/kz.webp">
+                        <span>裤子</span>
+                    </div>
                 </li>
-            </ul>
+                <li class="shops-li">
+                    <div class="shops-content">
+                        <img src="img/nz.webp">
+                        <span>牛仔</span>
+                    </div>
+                </li>
+                <li class="shops-li">
+                    <div class="shops-content">
+                        <img src="img/q.webp">
+                        <span>裙子</span>
+                    </div>
+                </li>
+                 <li class="shops-li">
+                    <div class="shops-content">
+                        <img src="img/qz.webp">
+                        <span>裙子</span>
+                    </div>
+                </li>
+                 <li class="shops-li">
+                    <div class="shops-content">
+                        <img src="img/t.webp">
+                        <span>外套</span>
+                    </div>
+                </li>
+                 <li class="shops-li">
+                    <div class="shops-content">
+                        <img src="img/xf.webp">
+                        <span>雪纺</span>
+                    </div>
+                </li>
+            </ul> 
         </div>
     </div>
 </template>
@@ -153,7 +189,8 @@
         border-left: 3px solid #fd575c;
     }
 
-    .shop-wrapper {
+   /* 
+   .shop-wrapper {
         flex: 1;
         background: #fff;
 
@@ -218,4 +255,25 @@
             }
         }
     }
+    */
+
+.shop_wrapper{
+      padding-top:.2rem;
+      width:75%;
+     
+      .shops-li{
+          width:26%;
+          float:left;
+          padding:.2rem;
+           margin-bottom:.1rem;
+          span{
+              display:block;
+              text-align:center;
+              padding-top:.1rem
+          }
+      }
+}
+
+
+
 </style>

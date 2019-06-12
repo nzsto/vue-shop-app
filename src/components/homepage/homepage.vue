@@ -53,12 +53,8 @@
             </div>
             <div class="swiper_show">
                 <ul>
-<<<<<<< HEAD
                  <v-touch class="swiper_slide" v-for="(item,index) in JYswiperList.slice(0,3)" :key="item.id"
                  v-on:tap="jyID(item.id)">
-=======
-                 <div class="swiper_slide" v-for="(item,index) in JYswiperList.slice(0,3)" :key="index">
->>>>>>> jiajia
                     <div class="swiper_cent">
                         <a href="#" class="img" data-addr="/index.php?r=p/d&amp;id=20027488&amp;source=mp">
                           <img :src="getImages(item.product_thumb)" alt="">
@@ -87,11 +83,7 @@
               </div>
           </h3>
         <ul class="goodsList">
-<<<<<<< HEAD
           <v-touch tag="li" v-for="(item,index) in goodsList" :key="item.product_id" v-on:tap="glID(item.product_id)">
-=======
-          <li  v-for="(item,index) in goodsList" :key="index">
->>>>>>> jiajia
             <a href="#">
               <p>
                 <img :src="getImages(item.thumb)" alt="">
