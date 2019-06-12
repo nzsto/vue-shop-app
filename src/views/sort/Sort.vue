@@ -3,7 +3,6 @@
         <Header :title='title' :iconfont='icon' />
         <Sort />
     </div>
-    </div>
 </template>
 <script>
     import Header from "@common/header/Header";
