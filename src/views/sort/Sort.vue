@@ -3,14 +3,13 @@
         <Header :title='title' :iconfont='icon' />
         <Sort />
     </div>
-    </div>
 </template>
 <script>
     import Header from "@common/header/Header";
     import Vuex from "vuex";
     import Sort from "@components/sort/Sort";
     export default {
-        name: "Sort",
+        name: "sort",
         data() {
             return {
                 title: '我的分类',
