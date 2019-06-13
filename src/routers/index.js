@@ -32,9 +32,5 @@ export default new Router({
         login,
         regist,
         search
-<<<<<<< HEAD
-    
-=======
->>>>>>> jiajia
     ]
 })

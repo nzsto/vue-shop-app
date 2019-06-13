@@ -14,7 +14,7 @@
 <script>
 import Vuex from "vuex";
 export default {
-    name:"Top",
+    name:"top",
     computed: {
         ...Vuex.mapState({
             allSelected:state=>state.cart.allSelected
